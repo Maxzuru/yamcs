@@ -33,6 +33,7 @@
     <module>ccsds-frames-uslp</module>
     <module>cfdp</module>
     <module>cfdp-udp</module>
+    <module>racs2-demo</module>
     <module>perftest1</module>
     <module>perftest2</module>
     <module>pus</module>
