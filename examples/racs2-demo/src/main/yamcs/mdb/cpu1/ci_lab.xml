@@ -54,7 +54,7 @@
         </EntryList>
         <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
           <RestrictionCriteria>
-            <Comparison parameterRef="/cFS/MessageId" value="2180" />
+            <Comparison parameterRef="/cFS/MessageId" value="0x0884" />
           </RestrictionCriteria>
         </BaseContainer>
       </SequenceContainer>
@@ -63,31 +63,67 @@
   <CommandMetaData>
     <MetaCommandSet>
       <MetaCommand name="CI_LAB_NoopCmd" shortDescription="CI_LAB_NoopCmd_t; MID=0x1884; FC=0; sizeof=8">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1884" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="1" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="0" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <CommandContainer name="CI_LAB_NoopCmd">
-          <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1884C00000010000" sizeInBits="64" />
-          </EntryList>
+          <EntryList />
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="CI_LAB_ResetCountersCmd" shortDescription="CI_LAB_ResetCountersCmd_t; MID=0x1884; FC=1; sizeof=8">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1884" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="1" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="1" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <CommandContainer name="CI_LAB_ResetCountersCmd">
-          <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1884C00000010100" sizeInBits="64" />
-          </EntryList>
+          <EntryList />
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="CI_LAB_SendHkCmd" shortDescription="CI_LAB_SendHkCmd_t; MID=0x1885; FC=0; sizeof=8">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1885" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="1" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="0" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <CommandContainer name="CI_LAB_SendHkCmd">
-          <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1885C00000010000" sizeInBits="64" />
-          </EntryList>
+          <EntryList />
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="CI_LAB_ReadUplinkCmd" shortDescription="CI_LAB_ReadUplinkCmd_t; MID=0x1886; FC=0; sizeof=8">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1886" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="1" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="0" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <CommandContainer name="CI_LAB_ReadUplinkCmd">
-          <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1886C00000010000" sizeInBits="64" />
-          </EntryList>
+          <EntryList />
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
     </MetaCommandSet>

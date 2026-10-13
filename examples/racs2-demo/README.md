@@ -65,7 +65,8 @@ The following telemetry (TM) and telecommands (TC) are defined for **each CPU**.
 | Total per CPU | **17** | **103** |
 | Total for both CPUs | **34** | **206** |
 
-The MDB defines 1349 parameters and 35 containers, including the common header.
+The MDB defines 1349 parameters and 35 telemetry containers, including the common header.
+It also includes one abstract command, `/cFS/CCSDS_Command`, shared by the 206 concrete commands.
 Telemetry includes housekeeping, ES application information and memory statistics,
 EVS long and short events, SB statistics and subscriptions, the TBL registry,
 TIME diagnostics, and TO data type tests.
@@ -86,6 +87,34 @@ specifies the MID and function code. It is therefore excluded from the fixed-MID
 TBL ground commands. File record definitions are also outside the scope of this MDB.
 
 ## Wire format and naming
+
+The common `cfs.xml` defines the command header as individual XML fields in the
+abstract `/cFS/CCSDS_Command`: `mid` (16 bits), `sequenceFlags` (2 bits),
+`sequenceCount` (14 bits), `packetLength` (16 bits), `functionCode` (8 bits),
+and `checksum` (8 bits). The 16-bit `mid` contains the CCSDS version, packet type,
+secondary-header flag, and APID, following cFE's MID representation.
+
+Each application command inherits this header and assigns its values explicitly.
+For example, CPU1 ES NOOP specifies:
+
+```xml
+<BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+  <ArgumentAssignmentList>
+    <ArgumentAssignment argumentName="mid" argumentValue="0x1806" />
+    <ArgumentAssignment argumentName="packetLength" argumentValue="1" />
+    <ArgumentAssignment argumentName="functionCode" argumentValue="0" />
+    <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+    <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+    <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+  </ArgumentAssignmentList>
+</BaseMetaCommand>
+```
+
+To specify a MID such as `0x1808`, use
+`<ArgumentAssignment argumentName="mid" argumentValue="0x1808" />`.
+This is standard XTCE syntax; the header is encoded from these fields rather
+than from a single opaque `binaryValue`. Telemetry container comparisons also
+use hexadecimal MIDs, such as `<Comparison parameterRef="/cFS/MessageId" value="0x0800" />`.
 
 - The CCSDS primary header and telemetry timestamps use big endian byte order.
   Telemetry headers are 16 bytes; command headers are 8 bytes.

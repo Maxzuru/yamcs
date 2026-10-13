@@ -90,7 +90,8 @@ public class VerifyCfsMdb {
                 telemetry++;
             }
         }
-        if (commands != mdb.getMetaCommands().size() || telemetry + 1 != mdb.getSequenceContainers().size()) {
+        long concreteCommands = mdb.getMetaCommands().stream().filter(c -> !c.isAbstract()).count();
+        if (commands != concreteCommands || telemetry + 1 != mdb.getSequenceContainers().size()) {
             throw new AssertionError("Fixture coverage does not match MDB contents");
         }
         System.out.printf("PASS: %d command packets match C byte for byte; %d telemetry packets decode correctly%n",

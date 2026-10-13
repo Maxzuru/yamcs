@@ -102,10 +102,9 @@ def generate(manifest, output, module=None):
     types = element(tm, 'ParameterTypeSet')
     params = element(tm, 'ParameterSet')
     containers = element(tm, 'ContainerSet')
-    if module:
-        tc = element(root, 'CommandMetaData')
-        args = element(tc, 'ArgumentTypeSet')
-        commands = element(tc, 'MetaCommandSet')
+    tc = element(root, 'CommandMetaData')
+    args = element(tc, 'ArgumentTypeSet')
+    commands = element(tc, 'MetaCommandSet')
     defined = {'Parameter': set(), 'Argument': set()}
 
     def datatype(f, category, byte_order=None):
@@ -144,6 +143,30 @@ def generate(manifest, output, module=None):
             entry = element(entries, 'ParameterRefEntry', parameterRef=name)
             locate(entry, offset)
 
+        # Reusable CCSDS/cFS command header. MID includes the version, packet
+        # type, secondary-header flag and APID, as defined by cFE's 16-bit MID.
+        for bits in (2, 8, 14, 16):
+            node = element(args, 'IntegerArgumentType', name='header_uint%d' % bits,
+                           signed='false', sizeInBits=bits)
+            element(node, 'IntegerDataEncoding', sizeInBits=bits, encoding='unsigned',
+                    byteOrder='mostSignificantByteFirst')
+        base_command = element(commands, 'MetaCommand', name='CCSDS_Command', abstract='true',
+                               shortDescription='CCSDS primary header and cFS command secondary header')
+        arguments = element(base_command, 'ArgumentList')
+        header_fields = [('mid', 16, 0, None), ('sequenceFlags', 2, 16, '3'),
+                         ('sequenceCount', 14, 18, '0'), ('packetLength', 16, 32, None),
+                         ('functionCode', 8, 48, None), ('checksum', 8, 56, '0')]
+        container = element(base_command, 'CommandContainer', name='CCSDS_Command')
+        entries = element(container, 'EntryList')
+        for name, bits, bit_offset, default in header_fields:
+            attributes = dict(name=name, argumentTypeRef='header_uint%d' % bits)
+            if default is not None:
+                attributes['initialValue'] = default
+            element(arguments, 'Argument', **attributes)
+            entry = element(entries, 'ArgumentRefEntry', argumentRef=name)
+            location = element(entry, 'LocationInContainerInBits', referenceLocation='containerStart')
+            element(location, 'FixedValue').text = str(bit_offset)
+
     for packet in manifest['telemetry']:
         if not module or not packet['name'].startswith(system + '_'):
             continue
@@ -160,7 +183,7 @@ def generate(manifest, output, module=None):
             locate(entry, f['offset'])
         inheritance = element(container, 'BaseContainer', containerRef='/cFS/CCSDS_Telemetry')
         criteria = element(inheritance, 'RestrictionCriteria')
-        element(criteria, 'Comparison', parameterRef='/cFS/MessageId', value=packet['mid'])
+        element(criteria, 'Comparison', parameterRef='/cFS/MessageId', value='0x%04X' % packet['mid'])
 
     for cmd in manifest['commands']:
         if not module or not cmd['name'].startswith(system + '_'):
@@ -169,15 +192,19 @@ def generate(manifest, output, module=None):
         node = element(commands, 'MetaCommand', name=cmd['name'],
                        shortDescription='%s; MID=0x%04X; FC=%d; sizeof=%d' %
                        (cmd['c_type'], cmd['mid'], cmd['code'], layout['size']))
+        inheritance = element(node, 'BaseMetaCommand', metaCommandRef='/cFS/CCSDS_Command')
+        assignments = element(inheritance, 'ArgumentAssignmentList')
+        for name, value in [('mid', '0x%04X' % cmd['mid']),
+                            ('packetLength', str(layout['size'] - 7)),
+                            ('functionCode', str(cmd['code'])), ('sequenceFlags', '3'),
+                            ('sequenceCount', '0'), ('checksum', '0')]:
+            element(assignments, 'ArgumentAssignment', argumentName=name, argumentValue=value)
         fields = payload_fields(layout)
         arg_list = element(node, 'ArgumentList') if fields else None
         container = element(node, 'CommandContainer', name=cmd['name'])
         entry_list = element(container, 'EntryList')
-        # Full 8-byte wire header. The link postprocessor updates length,
-        # sequence count and checksum when transmitting.
-        wire = cmd['mid'].to_bytes(2, 'big') + bytes.fromhex('C000')
-        wire += (layout['size'] - 7).to_bytes(2, 'big') + bytes([cmd['code'], 0])
-        element(entry_list, 'FixedValueEntry', name='Header', binaryValue=wire.hex().upper(), sizeInBits=64)
+        # The common base container encodes the header fields. The link
+        # postprocessor updates length, sequence count and checksum on send.
         cursor = 8
         for f in fields:
             if f['offset'] < cursor:
@@ -198,6 +225,7 @@ def generate(manifest, output, module=None):
             gap = layout['size'] - cursor
             element(entry_list, 'FixedValueEntry', name='TrailingPadding', binaryValue='00' * gap,
                     sizeInBits=gap * 8)
+        element(container, 'BaseContainer', containerRef='/cFS/CCSDS_Command')
     if module and not len(args):
         tc.remove(args)
     ET.indent(root, space='  ')

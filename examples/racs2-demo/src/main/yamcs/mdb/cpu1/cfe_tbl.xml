@@ -211,7 +211,7 @@
         </EntryList>
         <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
           <RestrictionCriteria>
-            <Comparison parameterRef="/cFS/MessageId" value="2052" />
+            <Comparison parameterRef="/cFS/MessageId" value="0x0804" />
           </RestrictionCriteria>
         </BaseContainer>
       </SequenceContainer>
@@ -360,7 +360,7 @@
         </EntryList>
         <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
           <RestrictionCriteria>
-            <Comparison parameterRef="/cFS/MessageId" value="2060" />
+            <Comparison parameterRef="/cFS/MessageId" value="0x080C" />
           </RestrictionCriteria>
         </BaseContainer>
       </SequenceContainer>
@@ -394,35 +394,73 @@
     </ArgumentTypeSet>
     <MetaCommandSet>
       <MetaCommand name="CFE_TBL_NoopCmd" shortDescription="CFE_TBL_NoopCmd_t; MID=0x1804; FC=0; sizeof=8">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1804" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="1" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="0" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <CommandContainer name="CFE_TBL_NoopCmd">
-          <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1804C00000010000" sizeInBits="64" />
-          </EntryList>
+          <EntryList />
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="CFE_TBL_ResetCountersCmd" shortDescription="CFE_TBL_ResetCountersCmd_t; MID=0x1804; FC=1; sizeof=8">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1804" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="1" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="1" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <CommandContainer name="CFE_TBL_ResetCountersCmd">
-          <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1804C00000010100" sizeInBits="64" />
-          </EntryList>
+          <EntryList />
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="CFE_TBL_LoadCmd" shortDescription="CFE_TBL_LoadCmd_t; MID=0x1804; FC=2; sizeof=72">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1804" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="65" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="2" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <ArgumentList>
           <Argument name="Payload_LoadFilename" argumentTypeRef="string512_leastSignificantByteFirst" />
         </ArgumentList>
         <CommandContainer name="CFE_TBL_LoadCmd">
           <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1804C00000410200" sizeInBits="64" />
             <ArgumentRefEntry argumentRef="Payload_LoadFilename">
               <LocationInContainerInBits referenceLocation="containerStart">
                 <FixedValue>64</FixedValue>
               </LocationInContainerInBits>
             </ArgumentRefEntry>
           </EntryList>
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="CFE_TBL_DumpCmd" shortDescription="CFE_TBL_DumpCmd_t; MID=0x1804; FC=3; sizeof=114">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1804" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="107" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <ArgumentList>
           <Argument name="Payload_ActiveTableFlag" argumentTypeRef="unsigned16_leastSignificantByteFirst" />
           <Argument name="Payload_TableName" argumentTypeRef="string320_leastSignificantByteFirst" />
@@ -430,7 +468,6 @@
         </ArgumentList>
         <CommandContainer name="CFE_TBL_DumpCmd">
           <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1804C000006B0300" sizeInBits="64" />
             <ArgumentRefEntry argumentRef="Payload_ActiveTableFlag">
               <LocationInContainerInBits referenceLocation="containerStart">
                 <FixedValue>64</FixedValue>
@@ -447,16 +484,26 @@
               </LocationInContainerInBits>
             </ArgumentRefEntry>
           </EntryList>
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="CFE_TBL_ValidateCmd" shortDescription="CFE_TBL_ValidateCmd_t; MID=0x1804; FC=4; sizeof=50">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1804" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="43" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="4" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <ArgumentList>
           <Argument name="Payload_ActiveTableFlag" argumentTypeRef="unsigned16_leastSignificantByteFirst" />
           <Argument name="Payload_TableName" argumentTypeRef="string320_leastSignificantByteFirst" />
         </ArgumentList>
         <CommandContainer name="CFE_TBL_ValidateCmd">
           <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1804C000002B0400" sizeInBits="64" />
             <ArgumentRefEntry argumentRef="Payload_ActiveTableFlag">
               <LocationInContainerInBits referenceLocation="containerStart">
                 <FixedValue>64</FixedValue>
@@ -468,88 +515,148 @@
               </LocationInContainerInBits>
             </ArgumentRefEntry>
           </EntryList>
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="CFE_TBL_ActivateCmd" shortDescription="CFE_TBL_ActivateCmd_t; MID=0x1804; FC=5; sizeof=48">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1804" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="41" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="5" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <ArgumentList>
           <Argument name="Payload_TableName" argumentTypeRef="string320_leastSignificantByteFirst" />
         </ArgumentList>
         <CommandContainer name="CFE_TBL_ActivateCmd">
           <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1804C00000290500" sizeInBits="64" />
             <ArgumentRefEntry argumentRef="Payload_TableName">
               <LocationInContainerInBits referenceLocation="containerStart">
                 <FixedValue>64</FixedValue>
               </LocationInContainerInBits>
             </ArgumentRefEntry>
           </EntryList>
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="CFE_TBL_DumpRegistryCmd" shortDescription="CFE_TBL_DumpRegistryCmd_t; MID=0x1804; FC=6; sizeof=72">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1804" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="65" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="6" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <ArgumentList>
           <Argument name="Payload_DumpFilename" argumentTypeRef="string512_leastSignificantByteFirst" />
         </ArgumentList>
         <CommandContainer name="CFE_TBL_DumpRegistryCmd">
           <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1804C00000410600" sizeInBits="64" />
             <ArgumentRefEntry argumentRef="Payload_DumpFilename">
               <LocationInContainerInBits referenceLocation="containerStart">
                 <FixedValue>64</FixedValue>
               </LocationInContainerInBits>
             </ArgumentRefEntry>
           </EntryList>
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="CFE_TBL_SendRegistryCmd" shortDescription="CFE_TBL_SendRegistryCmd_t; MID=0x1804; FC=7; sizeof=48">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1804" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="41" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="7" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <ArgumentList>
           <Argument name="Payload_TableName" argumentTypeRef="string320_leastSignificantByteFirst" />
         </ArgumentList>
         <CommandContainer name="CFE_TBL_SendRegistryCmd">
           <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1804C00000290700" sizeInBits="64" />
             <ArgumentRefEntry argumentRef="Payload_TableName">
               <LocationInContainerInBits referenceLocation="containerStart">
                 <FixedValue>64</FixedValue>
               </LocationInContainerInBits>
             </ArgumentRefEntry>
           </EntryList>
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="CFE_TBL_DeleteCDSCmd" shortDescription="CFE_TBL_DeleteCDSCmd_t; MID=0x1804; FC=8; sizeof=48">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1804" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="41" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="8" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <ArgumentList>
           <Argument name="Payload_TableName" argumentTypeRef="string320_leastSignificantByteFirst" />
         </ArgumentList>
         <CommandContainer name="CFE_TBL_DeleteCDSCmd">
           <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1804C00000290800" sizeInBits="64" />
             <ArgumentRefEntry argumentRef="Payload_TableName">
               <LocationInContainerInBits referenceLocation="containerStart">
                 <FixedValue>64</FixedValue>
               </LocationInContainerInBits>
             </ArgumentRefEntry>
           </EntryList>
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="CFE_TBL_AbortLoadCmd" shortDescription="CFE_TBL_AbortLoadCmd_t; MID=0x1804; FC=9; sizeof=48">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1804" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="41" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="9" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <ArgumentList>
           <Argument name="Payload_TableName" argumentTypeRef="string320_leastSignificantByteFirst" />
         </ArgumentList>
         <CommandContainer name="CFE_TBL_AbortLoadCmd">
           <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1804C00000290900" sizeInBits="64" />
             <ArgumentRefEntry argumentRef="Payload_TableName">
               <LocationInContainerInBits referenceLocation="containerStart">
                 <FixedValue>64</FixedValue>
               </LocationInContainerInBits>
             </ArgumentRefEntry>
           </EntryList>
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="CFE_TBL_SendHkCmd" shortDescription="CFE_TBL_SendHkCmd_t; MID=0x180C; FC=0; sizeof=8">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x180C" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="1" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="0" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <CommandContainer name="CFE_TBL_SendHkCmd">
-          <EntryList>
-            <FixedValueEntry name="Header" binaryValue="180CC00000010000" sizeInBits="64" />
-          </EntryList>
+          <EntryList />
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
     </MetaCommandSet>

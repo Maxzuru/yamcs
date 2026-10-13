@@ -71,7 +71,7 @@
         </EntryList>
         <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
           <RestrictionCriteria>
-            <Comparison parameterRef="/cFS/MessageId" value="2432" />
+            <Comparison parameterRef="/cFS/MessageId" value="0x0980" />
           </RestrictionCriteria>
         </BaseContainer>
       </SequenceContainer>
@@ -160,7 +160,7 @@
         </EntryList>
         <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
           <RestrictionCriteria>
-            <Comparison parameterRef="/cFS/MessageId" value="2433" />
+            <Comparison parameterRef="/cFS/MessageId" value="0x0981" />
           </RestrictionCriteria>
         </BaseContainer>
       </SequenceContainer>
@@ -187,27 +187,64 @@
     </ArgumentTypeSet>
     <MetaCommandSet>
       <MetaCommand name="TO_LAB_NoopCmd" shortDescription="TO_LAB_NoopCmd_t; MID=0x1980; FC=0; sizeof=8">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1980" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="1" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="0" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <CommandContainer name="TO_LAB_NoopCmd">
-          <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1980C00000010000" sizeInBits="64" />
-          </EntryList>
+          <EntryList />
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="TO_LAB_ResetCountersCmd" shortDescription="TO_LAB_ResetCountersCmd_t; MID=0x1980; FC=1; sizeof=8">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1980" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="1" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="1" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <CommandContainer name="TO_LAB_ResetCountersCmd">
-          <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1980C00000010100" sizeInBits="64" />
-          </EntryList>
+          <EntryList />
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="TO_LAB_SendDataTypesCmd" shortDescription="TO_LAB_SendDataTypesCmd_t; MID=0x1980; FC=3; sizeof=8">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1980" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="1" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <CommandContainer name="TO_LAB_SendDataTypesCmd">
-          <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1980C00000010300" sizeInBits="64" />
-          </EntryList>
+          <EntryList />
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="TO_LAB_AddPacketCmd" shortDescription="TO_LAB_AddPacketCmd_t; MID=0x1980; FC=2; sizeof=16">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1980" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="9" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="2" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <ArgumentList>
           <Argument name="Payload_Stream_Value" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
           <Argument name="Payload_Flags_Priority" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
@@ -216,7 +253,6 @@
         </ArgumentList>
         <CommandContainer name="TO_LAB_AddPacketCmd">
           <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1980C00000090200" sizeInBits="64" />
             <ArgumentRefEntry argumentRef="Payload_Stream_Value">
               <LocationInContainerInBits referenceLocation="containerStart">
                 <FixedValue>64</FixedValue>
@@ -239,50 +275,89 @@
             </ArgumentRefEntry>
             <FixedValueEntry name="TrailingPadding" binaryValue="00" sizeInBits="8" />
           </EntryList>
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="TO_LAB_RemovePacketCmd" shortDescription="TO_LAB_RemovePacketCmd_t; MID=0x1980; FC=4; sizeof=12">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1980" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="5" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="4" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <ArgumentList>
           <Argument name="Payload_Stream_Value" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
         </ArgumentList>
         <CommandContainer name="TO_LAB_RemovePacketCmd">
           <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1980C00000050400" sizeInBits="64" />
             <ArgumentRefEntry argumentRef="Payload_Stream_Value">
               <LocationInContainerInBits referenceLocation="containerStart">
                 <FixedValue>64</FixedValue>
               </LocationInContainerInBits>
             </ArgumentRefEntry>
           </EntryList>
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="TO_LAB_RemoveAllCmd" shortDescription="TO_LAB_RemoveAllCmd_t; MID=0x1980; FC=5; sizeof=8">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1980" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="1" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="5" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <CommandContainer name="TO_LAB_RemoveAllCmd">
-          <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1980C00000010500" sizeInBits="64" />
-          </EntryList>
+          <EntryList />
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="TO_LAB_EnableOutputCmd" shortDescription="TO_LAB_EnableOutputCmd_t; MID=0x1980; FC=6; sizeof=24">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1980" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="17" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="6" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <ArgumentList>
           <Argument name="Payload_dest_IP" argumentTypeRef="string128_leastSignificantByteFirst" />
         </ArgumentList>
         <CommandContainer name="TO_LAB_EnableOutputCmd">
           <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1980C00000110600" sizeInBits="64" />
             <ArgumentRefEntry argumentRef="Payload_dest_IP">
               <LocationInContainerInBits referenceLocation="containerStart">
                 <FixedValue>64</FixedValue>
               </LocationInContainerInBits>
             </ArgumentRefEntry>
           </EntryList>
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
       <MetaCommand name="TO_LAB_SendHkCmd" shortDescription="TO_LAB_SendHkCmd_t; MID=0x1981; FC=0; sizeof=8">
+        <BaseMetaCommand metaCommandRef="/cFS/CCSDS_Command">
+          <ArgumentAssignmentList>
+            <ArgumentAssignment argumentName="mid" argumentValue="0x1981" />
+            <ArgumentAssignment argumentName="packetLength" argumentValue="1" />
+            <ArgumentAssignment argumentName="functionCode" argumentValue="0" />
+            <ArgumentAssignment argumentName="sequenceFlags" argumentValue="3" />
+            <ArgumentAssignment argumentName="sequenceCount" argumentValue="0" />
+            <ArgumentAssignment argumentName="checksum" argumentValue="0" />
+          </ArgumentAssignmentList>
+        </BaseMetaCommand>
         <CommandContainer name="TO_LAB_SendHkCmd">
-          <EntryList>
-            <FixedValueEntry name="Header" binaryValue="1981C00000010000" sizeInBits="64" />
-          </EntryList>
+          <EntryList />
+          <BaseContainer containerRef="/cFS/CCSDS_Command" />
         </CommandContainer>
       </MetaCommand>
     </MetaCommandSet>

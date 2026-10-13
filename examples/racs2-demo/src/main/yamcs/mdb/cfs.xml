@@ -49,4 +49,66 @@
       </SequenceContainer>
     </ContainerSet>
   </TelemetryMetaData>
+  <CommandMetaData>
+    <ArgumentTypeSet>
+      <IntegerArgumentType name="header_uint2" signed="false" sizeInBits="2">
+        <IntegerDataEncoding sizeInBits="2" encoding="unsigned" byteOrder="mostSignificantByteFirst" />
+      </IntegerArgumentType>
+      <IntegerArgumentType name="header_uint8" signed="false" sizeInBits="8">
+        <IntegerDataEncoding sizeInBits="8" encoding="unsigned" byteOrder="mostSignificantByteFirst" />
+      </IntegerArgumentType>
+      <IntegerArgumentType name="header_uint14" signed="false" sizeInBits="14">
+        <IntegerDataEncoding sizeInBits="14" encoding="unsigned" byteOrder="mostSignificantByteFirst" />
+      </IntegerArgumentType>
+      <IntegerArgumentType name="header_uint16" signed="false" sizeInBits="16">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst" />
+      </IntegerArgumentType>
+    </ArgumentTypeSet>
+    <MetaCommandSet>
+      <MetaCommand name="CCSDS_Command" abstract="true" shortDescription="CCSDS primary header and cFS command secondary header">
+        <ArgumentList>
+          <Argument name="mid" argumentTypeRef="header_uint16" />
+          <Argument name="sequenceFlags" argumentTypeRef="header_uint2" initialValue="3" />
+          <Argument name="sequenceCount" argumentTypeRef="header_uint14" initialValue="0" />
+          <Argument name="packetLength" argumentTypeRef="header_uint16" />
+          <Argument name="functionCode" argumentTypeRef="header_uint8" />
+          <Argument name="checksum" argumentTypeRef="header_uint8" initialValue="0" />
+        </ArgumentList>
+        <CommandContainer name="CCSDS_Command">
+          <EntryList>
+            <ArgumentRefEntry argumentRef="mid">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>0</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="sequenceFlags">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>16</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="sequenceCount">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>18</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="packetLength">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>32</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="functionCode">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>48</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="checksum">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>56</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+    </MetaCommandSet>
+  </CommandMetaData>
 </SpaceSystem>
