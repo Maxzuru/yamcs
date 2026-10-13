@@ -1,0 +1,799 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SpaceSystem xmlns="http://www.omg.org/spec/XTCE/20180204" name="CFE_TIME" shortDescription="Upstream cFS native_std CPU1: CFE_TIME">
+  <Header version="1.0" validationStatus="Draft" />
+  <TelemetryMetaData>
+    <ParameterTypeSet>
+      <IntegerParameterType name="unsigned8_leastSignificantByteFirst" signed="false" sizeInBits="8">
+        <IntegerDataEncoding sizeInBits="8" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <IntegerParameterType name="unsigned16_leastSignificantByteFirst" signed="false" sizeInBits="16">
+        <IntegerDataEncoding sizeInBits="16" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <IntegerParameterType name="signed16_leastSignificantByteFirst" signed="true" sizeInBits="16">
+        <IntegerDataEncoding sizeInBits="16" byteOrder="leastSignificantByteFirst" encoding="twosComplement" />
+      </IntegerParameterType>
+      <IntegerParameterType name="unsigned32_leastSignificantByteFirst" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+    </ParameterTypeSet>
+    <ParameterSet>
+      <Parameter name="CFE_TIME_HousekeepingTlm_Payload_CommandCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CommandCounter (uint8)" />
+      <Parameter name="CFE_TIME_HousekeepingTlm_Payload_CommandErrorCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CommandErrorCounter (uint8)" />
+      <Parameter name="CFE_TIME_HousekeepingTlm_Payload_ClockStateFlags" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.ClockStateFlags (uint16)" />
+      <Parameter name="CFE_TIME_HousekeepingTlm_Payload_ClockStateAPI" parameterTypeRef="signed16_leastSignificantByteFirst" shortDescription="Payload.ClockStateAPI (CFE_TIME_ClockState_Enum_t)" />
+      <Parameter name="CFE_TIME_HousekeepingTlm_Payload_LeapSeconds" parameterTypeRef="signed16_leastSignificantByteFirst" shortDescription="Payload.LeapSeconds (int16)" />
+      <Parameter name="CFE_TIME_HousekeepingTlm_Payload_MET_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.MET.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_HousekeepingTlm_Payload_MET_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.MET.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_HousekeepingTlm_Payload_STCF_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.STCF.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_HousekeepingTlm_Payload_STCF_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.STCF.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_HousekeepingTlm_Payload_AdjustmentFactor_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AdjustmentFactor.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_HousekeepingTlm_Payload_AdjustmentFactor_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AdjustmentFactor.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_AtToneMET_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AtToneMET.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_AtToneMET_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AtToneMET.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_AtToneSTCF_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AtToneSTCF.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_AtToneSTCF_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AtToneSTCF.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_AtToneDelay_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AtToneDelay.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_AtToneDelay_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AtToneDelay.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_AtToneLatch_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AtToneLatch.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_AtToneLatch_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AtToneLatch.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_AtToneLeapSeconds" parameterTypeRef="signed16_leastSignificantByteFirst" shortDescription="Payload.AtToneLeapSeconds (int16)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ClockStateAPI" parameterTypeRef="signed16_leastSignificantByteFirst" shortDescription="Payload.ClockStateAPI (CFE_TIME_ClockState_Enum_t)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_TimeSinceTone_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.TimeSinceTone.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_TimeSinceTone_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.TimeSinceTone.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_CurrentLatch_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.CurrentLatch.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_CurrentLatch_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.CurrentLatch.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_CurrentMET_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.CurrentMET.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_CurrentMET_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.CurrentMET.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_CurrentTAI_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.CurrentTAI.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_CurrentTAI_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.CurrentTAI.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_CurrentUTC_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.CurrentUTC.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_CurrentUTC_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.CurrentUTC.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ClockSetState" parameterTypeRef="signed16_leastSignificantByteFirst" shortDescription="Payload.ClockSetState (int16)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ClockFlyState" parameterTypeRef="signed16_leastSignificantByteFirst" shortDescription="Payload.ClockFlyState (int16)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ClockSource" parameterTypeRef="signed16_leastSignificantByteFirst" shortDescription="Payload.ClockSource (int16)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ClockSignal" parameterTypeRef="signed16_leastSignificantByteFirst" shortDescription="Payload.ClockSignal (int16)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ServerFlyState" parameterTypeRef="signed16_leastSignificantByteFirst" shortDescription="Payload.ServerFlyState (int16)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_Forced2Fly" parameterTypeRef="signed16_leastSignificantByteFirst" shortDescription="Payload.Forced2Fly (int16)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ClockStateFlags" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.ClockStateFlags (uint16)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_OneTimeDirection" parameterTypeRef="signed16_leastSignificantByteFirst" shortDescription="Payload.OneTimeDirection (int16)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_OneHzDirection" parameterTypeRef="signed16_leastSignificantByteFirst" shortDescription="Payload.OneHzDirection (int16)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_DelayDirection" parameterTypeRef="signed16_leastSignificantByteFirst" shortDescription="Payload.DelayDirection (int16)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_OneTimeAdjust_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.OneTimeAdjust.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_OneTimeAdjust_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.OneTimeAdjust.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_OneHzAdjust_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.OneHzAdjust.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_OneHzAdjust_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.OneHzAdjust.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ToneSignalLatch_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ToneSignalLatch.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ToneSignalLatch_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ToneSignalLatch.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ToneDataLatch_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ToneDataLatch.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ToneDataLatch_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ToneDataLatch.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ToneMatchCounter" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ToneMatchCounter (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ToneMatchErrorCounter" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ToneMatchErrorCounter (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ToneSignalCounter" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ToneSignalCounter (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ToneDataCounter" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ToneDataCounter (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ToneIntCounter" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ToneIntCounter (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ToneIntErrorCounter" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ToneIntErrorCounter (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ToneTaskCounter" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ToneTaskCounter (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_VersionCounter" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.VersionCounter (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_LocalIntCounter" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.LocalIntCounter (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_LocalTaskCounter" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.LocalTaskCounter (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_VirtualMET" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.VirtualMET (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_MinElapsed" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.MinElapsed (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_MaxElapsed" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.MaxElapsed (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_MaxLocalClock_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.MaxLocalClock.Seconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_MaxLocalClock_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.MaxLocalClock.Subseconds (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ToneOverLimit" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ToneOverLimit (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_ToneUnderLimit" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ToneUnderLimit (uint32)" />
+      <Parameter name="CFE_TIME_DiagnosticTlm_Payload_DataStoreStatus" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.DataStoreStatus (uint32)" />
+    </ParameterSet>
+    <ContainerSet>
+      <SequenceContainer name="CFE_TIME_HousekeepingTlm" shortDescription="CFE_TIME_HousekeepingTlm_t; MID=0x0805; sizeof=48">
+        <EntryList>
+          <ParameterRefEntry parameterRef="CFE_TIME_HousekeepingTlm_Payload_CommandCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>128</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_HousekeepingTlm_Payload_CommandErrorCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>136</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_HousekeepingTlm_Payload_ClockStateFlags">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>144</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_HousekeepingTlm_Payload_ClockStateAPI">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>160</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_HousekeepingTlm_Payload_LeapSeconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>176</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_HousekeepingTlm_Payload_MET_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>192</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_HousekeepingTlm_Payload_MET_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>224</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_HousekeepingTlm_Payload_STCF_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>256</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_HousekeepingTlm_Payload_STCF_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>288</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_HousekeepingTlm_Payload_AdjustmentFactor_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>320</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_HousekeepingTlm_Payload_AdjustmentFactor_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>352</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
+          <RestrictionCriteria>
+            <Comparison parameterRef="/cFS/MessageId" value="2053" />
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="CFE_TIME_DiagnosticTlm" shortDescription="CFE_TIME_DiagnosticTlm_t; MID=0x0806; sizeof=216">
+        <EntryList>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_AtToneMET_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>128</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_AtToneMET_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>160</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_AtToneSTCF_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>192</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_AtToneSTCF_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>224</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_AtToneDelay_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>256</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_AtToneDelay_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>288</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_AtToneLatch_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>320</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_AtToneLatch_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>352</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_AtToneLeapSeconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>384</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ClockStateAPI">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>400</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_TimeSinceTone_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>416</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_TimeSinceTone_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>448</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_CurrentLatch_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>480</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_CurrentLatch_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>512</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_CurrentMET_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>544</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_CurrentMET_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>576</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_CurrentTAI_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>608</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_CurrentTAI_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>640</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_CurrentUTC_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>672</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_CurrentUTC_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>704</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ClockSetState">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>736</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ClockFlyState">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>752</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ClockSource">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>768</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ClockSignal">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>784</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ServerFlyState">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>800</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_Forced2Fly">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>816</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ClockStateFlags">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>832</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_OneTimeDirection">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>848</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_OneHzDirection">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>864</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_DelayDirection">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>880</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_OneTimeAdjust_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>896</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_OneTimeAdjust_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>928</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_OneHzAdjust_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>960</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_OneHzAdjust_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>992</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ToneSignalLatch_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1024</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ToneSignalLatch_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1056</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ToneDataLatch_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1088</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ToneDataLatch_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1120</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ToneMatchCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1152</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ToneMatchErrorCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1184</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ToneSignalCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1216</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ToneDataCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1248</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ToneIntCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1280</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ToneIntErrorCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1312</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ToneTaskCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1344</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_VersionCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1376</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_LocalIntCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1408</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_LocalTaskCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1440</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_VirtualMET">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1472</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_MinElapsed">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1504</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_MaxElapsed">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1536</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_MaxLocalClock_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1568</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_MaxLocalClock_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1600</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ToneOverLimit">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1632</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_ToneUnderLimit">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1664</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TIME_DiagnosticTlm_Payload_DataStoreStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1696</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
+          <RestrictionCriteria>
+            <Comparison parameterRef="/cFS/MessageId" value="2054" />
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+    </ContainerSet>
+  </TelemetryMetaData>
+  <CommandMetaData>
+    <ArgumentTypeSet>
+      <IntegerArgumentType name="signed16_leastSignificantByteFirst" signed="true" sizeInBits="16">
+        <IntegerDataEncoding sizeInBits="16" byteOrder="leastSignificantByteFirst" encoding="twosComplement" />
+      </IntegerArgumentType>
+      <IntegerArgumentType name="unsigned32_leastSignificantByteFirst" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerArgumentType>
+    </ArgumentTypeSet>
+    <MetaCommandSet>
+      <MetaCommand name="CFE_TIME_NoopCmd" shortDescription="CFE_TIME_NoopCmd_t; MID=0x1805; FC=0; sizeof=8">
+        <CommandContainer name="CFE_TIME_NoopCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_ResetCountersCmd" shortDescription="CFE_TIME_ResetCountersCmd_t; MID=0x1805; FC=1; sizeof=8">
+        <CommandContainer name="CFE_TIME_ResetCountersCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000010100" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_SendDiagnosticCmd" shortDescription="CFE_TIME_SendDiagnosticCmd_t; MID=0x1805; FC=2; sizeof=8">
+        <CommandContainer name="CFE_TIME_SendDiagnosticCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000010200" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_SetStateCmd" shortDescription="CFE_TIME_SetStateCmd_t; MID=0x1805; FC=4; sizeof=10">
+        <ArgumentList>
+          <Argument name="Payload_ClockState" argumentTypeRef="signed16_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TIME_SetStateCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000030400" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_ClockState">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_SetSourceCmd" shortDescription="CFE_TIME_SetSourceCmd_t; MID=0x1805; FC=3; sizeof=10">
+        <ArgumentList>
+          <Argument name="Payload_TimeSource" argumentTypeRef="signed16_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TIME_SetSourceCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000030300" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_TimeSource">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_SetSignalCmd" shortDescription="CFE_TIME_SetSignalCmd_t; MID=0x1805; FC=15; sizeof=10">
+        <ArgumentList>
+          <Argument name="Payload_ToneSource" argumentTypeRef="signed16_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TIME_SetSignalCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000030F00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_ToneSource">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_AddDelayCmd" shortDescription="CFE_TIME_AddDelayCmd_t; MID=0x1805; FC=5; sizeof=16">
+        <ArgumentList>
+          <Argument name="Payload_Seconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+          <Argument name="Payload_MicroSeconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TIME_AddDelayCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000090500" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Seconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_MicroSeconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>96</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_SubDelayCmd" shortDescription="CFE_TIME_SubDelayCmd_t; MID=0x1805; FC=6; sizeof=16">
+        <ArgumentList>
+          <Argument name="Payload_Seconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+          <Argument name="Payload_MicroSeconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TIME_SubDelayCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000090600" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Seconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_MicroSeconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>96</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_SetTimeCmd" shortDescription="CFE_TIME_SetTimeCmd_t; MID=0x1805; FC=7; sizeof=16">
+        <ArgumentList>
+          <Argument name="Payload_Seconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+          <Argument name="Payload_MicroSeconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TIME_SetTimeCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000090700" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Seconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_MicroSeconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>96</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_SetMETCmd" shortDescription="CFE_TIME_SetMETCmd_t; MID=0x1805; FC=8; sizeof=16">
+        <ArgumentList>
+          <Argument name="Payload_Seconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+          <Argument name="Payload_MicroSeconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TIME_SetMETCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000090800" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Seconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_MicroSeconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>96</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_SetSTCFCmd" shortDescription="CFE_TIME_SetSTCFCmd_t; MID=0x1805; FC=9; sizeof=16">
+        <ArgumentList>
+          <Argument name="Payload_Seconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+          <Argument name="Payload_MicroSeconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TIME_SetSTCFCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000090900" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Seconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_MicroSeconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>96</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_SetLeapSecondsCmd" shortDescription="CFE_TIME_SetLeapSecondsCmd_t; MID=0x1805; FC=10; sizeof=10">
+        <ArgumentList>
+          <Argument name="Payload_LeapSeconds" argumentTypeRef="signed16_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TIME_SetLeapSecondsCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000030A00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_LeapSeconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_AddAdjustCmd" shortDescription="CFE_TIME_AddAdjustCmd_t; MID=0x1805; FC=11; sizeof=16">
+        <ArgumentList>
+          <Argument name="Payload_Seconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+          <Argument name="Payload_MicroSeconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TIME_AddAdjustCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000090B00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Seconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_MicroSeconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>96</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_SubAdjustCmd" shortDescription="CFE_TIME_SubAdjustCmd_t; MID=0x1805; FC=12; sizeof=16">
+        <ArgumentList>
+          <Argument name="Payload_Seconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+          <Argument name="Payload_MicroSeconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TIME_SubAdjustCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000090C00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Seconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_MicroSeconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>96</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_AddOneHzAdjustmentCmd" shortDescription="CFE_TIME_AddOneHzAdjustmentCmd_t; MID=0x1805; FC=13; sizeof=16">
+        <ArgumentList>
+          <Argument name="Payload_Seconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+          <Argument name="Payload_Subseconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TIME_AddOneHzAdjustmentCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000090D00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Seconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Subseconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>96</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_SubOneHzAdjustmentCmd" shortDescription="CFE_TIME_SubOneHzAdjustmentCmd_t; MID=0x1805; FC=14; sizeof=16">
+        <ArgumentList>
+          <Argument name="Payload_Seconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+          <Argument name="Payload_Subseconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TIME_SubOneHzAdjustmentCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1805C00000090E00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Seconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Subseconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>96</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_SendHkCmd" shortDescription="CFE_TIME_SendHkCmd_t; MID=0x180D; FC=0; sizeof=8">
+        <CommandContainer name="CFE_TIME_SendHkCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="180DC00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_OneHzCmd" shortDescription="CFE_TIME_OneHzCmd_t; MID=0x1811; FC=0; sizeof=8">
+        <CommandContainer name="CFE_TIME_OneHzCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1811C00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_ToneSignalCmd" shortDescription="CFE_TIME_ToneSignalCmd_t; MID=0x1810; FC=0; sizeof=8">
+        <CommandContainer name="CFE_TIME_ToneSignalCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1810C00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_FakeToneCmd" shortDescription="CFE_TIME_FakeToneCmd_t; MID=0x1862; FC=0; sizeof=8">
+        <CommandContainer name="CFE_TIME_FakeToneCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1862C00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TIME_ToneDataCmd" shortDescription="CFE_TIME_ToneDataCmd_t; MID=0x1860; FC=0; sizeof=28">
+        <ArgumentList>
+          <Argument name="Payload_AtToneMET_Seconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+          <Argument name="Payload_AtToneMET_Subseconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+          <Argument name="Payload_AtToneSTCF_Seconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+          <Argument name="Payload_AtToneSTCF_Subseconds" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+          <Argument name="Payload_AtToneLeapSeconds" argumentTypeRef="signed16_leastSignificantByteFirst" />
+          <Argument name="Payload_AtToneState" argumentTypeRef="signed16_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TIME_ToneDataCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1860C00000150000" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_AtToneMET_Seconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_AtToneMET_Subseconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>96</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_AtToneSTCF_Seconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>128</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_AtToneSTCF_Subseconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>160</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_AtToneLeapSeconds">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>192</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_AtToneState">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>208</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+    </MetaCommandSet>
+  </CommandMetaData>
+</SpaceSystem>

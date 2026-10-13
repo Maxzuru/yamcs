@@ -1,0 +1,16 @@
+{
+  "profiles": [
+    "native_std/default_cpu1",
+    "native_std/default_cpu2"
+  ],
+  "revisions": {
+    "cFS": "83c403ed8ec273c6de4fe8ca08ade8d7753d80ac",
+    "cFE": "5dd74afa85e5ed5e8c1ed4129281d21611f8d699",
+    "to_lab": "d27c6014cb5d2979140500f635876ee87b81995b",
+    "ci_lab": "edb8ddf53076128a125b373b3b870f75e1d82d04"
+  },
+  "manifests": {
+    "CPU1": "cpu1/cfs.manifest.json",
+    "CPU2": "cpu2/cfs.manifest.json"
+  }
+}

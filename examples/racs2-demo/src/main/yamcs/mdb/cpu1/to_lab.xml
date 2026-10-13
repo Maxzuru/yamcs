@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SpaceSystem xmlns="http://www.omg.org/spec/XTCE/20180204" name="TO_LAB" shortDescription="Upstream cFS native_std CPU1: TO_LAB">
+  <Header version="1.0" validationStatus="Draft" />
+  <TelemetryMetaData>
+    <ParameterTypeSet>
+      <IntegerParameterType name="unsigned8_leastSignificantByteFirst" signed="false" sizeInBits="8">
+        <IntegerDataEncoding sizeInBits="8" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <IntegerParameterType name="unsigned16_leastSignificantByteFirst" signed="false" sizeInBits="16">
+        <IntegerDataEncoding sizeInBits="16" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <IntegerParameterType name="signed8_leastSignificantByteFirst" signed="true" sizeInBits="8">
+        <IntegerDataEncoding sizeInBits="8" byteOrder="leastSignificantByteFirst" encoding="twosComplement" />
+      </IntegerParameterType>
+      <IntegerParameterType name="signed16_leastSignificantByteFirst" signed="true" sizeInBits="16">
+        <IntegerDataEncoding sizeInBits="16" byteOrder="leastSignificantByteFirst" encoding="twosComplement" />
+      </IntegerParameterType>
+      <IntegerParameterType name="signed32_leastSignificantByteFirst" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" byteOrder="leastSignificantByteFirst" encoding="twosComplement" />
+      </IntegerParameterType>
+      <FloatParameterType name="float32_leastSignificantByteFirst" sizeInBits="32">
+        <FloatDataEncoding sizeInBits="32" byteOrder="leastSignificantByteFirst" encoding="IEEE754_1985" />
+      </FloatParameterType>
+      <FloatParameterType name="float64_leastSignificantByteFirst" sizeInBits="64">
+        <FloatDataEncoding sizeInBits="64" byteOrder="leastSignificantByteFirst" encoding="IEEE754_1985" />
+      </FloatParameterType>
+      <StringParameterType name="string80_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>80</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringParameterType>
+    </ParameterTypeSet>
+    <ParameterSet>
+      <Parameter name="TO_LAB_HkTlm_Payload_CommandCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CommandCounter (uint8)" />
+      <Parameter name="TO_LAB_HkTlm_Payload_CommandErrorCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CommandErrorCounter (uint8)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_synch" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.synch (uint16)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_bl1" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.bl1 (uint8)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_bl2" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.bl2 (uint8)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_b1" parameterTypeRef="signed8_leastSignificantByteFirst" shortDescription="Payload.b1 (int8)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_b2" parameterTypeRef="signed8_leastSignificantByteFirst" shortDescription="Payload.b2 (int8)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_b3" parameterTypeRef="signed8_leastSignificantByteFirst" shortDescription="Payload.b3 (int8)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_b4" parameterTypeRef="signed8_leastSignificantByteFirst" shortDescription="Payload.b4 (int8)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_w1" parameterTypeRef="signed16_leastSignificantByteFirst" shortDescription="Payload.w1 (int16)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_w2" parameterTypeRef="signed16_leastSignificantByteFirst" shortDescription="Payload.w2 (int16)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_dw1" parameterTypeRef="signed32_leastSignificantByteFirst" shortDescription="Payload.dw1 (int32)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_dw2" parameterTypeRef="signed32_leastSignificantByteFirst" shortDescription="Payload.dw2 (int32)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_f1" parameterTypeRef="float32_leastSignificantByteFirst" shortDescription="Payload.f1 (float)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_f2" parameterTypeRef="float32_leastSignificantByteFirst" shortDescription="Payload.f2 (float)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_df1" parameterTypeRef="float64_leastSignificantByteFirst" shortDescription="Payload.df1 (double)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_df2" parameterTypeRef="float64_leastSignificantByteFirst" shortDescription="Payload.df2 (double)" />
+      <Parameter name="TO_LAB_DataTypesTlm_Payload_str" parameterTypeRef="string80_leastSignificantByteFirst" shortDescription="Payload.str (char [10])" />
+    </ParameterSet>
+    <ContainerSet>
+      <SequenceContainer name="TO_LAB_HkTlm" shortDescription="TO_LAB_HkTlm_t; MID=0x0880; sizeof=18">
+        <EntryList>
+          <ParameterRefEntry parameterRef="TO_LAB_HkTlm_Payload_CommandCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>128</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_HkTlm_Payload_CommandErrorCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>136</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
+          <RestrictionCriteria>
+            <Comparison parameterRef="/cFS/MessageId" value="2176" />
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="TO_LAB_DataTypesTlm" shortDescription="TO_LAB_DataTypesTlm_t; MID=0x0881; sizeof=80">
+        <EntryList>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_synch">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>128</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_bl1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>144</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_bl2">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>152</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_b1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>160</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_b2">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>168</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_b3">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>176</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_b4">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>184</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_w1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>192</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_w2">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>208</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_dw1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>224</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_dw2">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>256</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_f1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>288</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_f2">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>320</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_df1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>384</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_df2">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>448</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="TO_LAB_DataTypesTlm_Payload_str">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>512</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
+          <RestrictionCriteria>
+            <Comparison parameterRef="/cFS/MessageId" value="2177" />
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+    </ContainerSet>
+  </TelemetryMetaData>
+  <CommandMetaData>
+    <ArgumentTypeSet>
+      <IntegerArgumentType name="unsigned32_leastSignificantByteFirst" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerArgumentType>
+      <IntegerArgumentType name="unsigned8_leastSignificantByteFirst" signed="false" sizeInBits="8">
+        <IntegerDataEncoding sizeInBits="8" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerArgumentType>
+      <StringArgumentType name="string128_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>128</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringArgumentType>
+    </ArgumentTypeSet>
+    <MetaCommandSet>
+      <MetaCommand name="TO_LAB_NoopCmd" shortDescription="TO_LAB_NoopCmd_t; MID=0x1880; FC=0; sizeof=8">
+        <CommandContainer name="TO_LAB_NoopCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1880C00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="TO_LAB_ResetCountersCmd" shortDescription="TO_LAB_ResetCountersCmd_t; MID=0x1880; FC=1; sizeof=8">
+        <CommandContainer name="TO_LAB_ResetCountersCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1880C00000010100" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="TO_LAB_SendDataTypesCmd" shortDescription="TO_LAB_SendDataTypesCmd_t; MID=0x1880; FC=3; sizeof=8">
+        <CommandContainer name="TO_LAB_SendDataTypesCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1880C00000010300" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="TO_LAB_AddPacketCmd" shortDescription="TO_LAB_AddPacketCmd_t; MID=0x1880; FC=2; sizeof=16">
+        <ArgumentList>
+          <Argument name="Payload_Stream_Value" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+          <Argument name="Payload_Flags_Priority" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+          <Argument name="Payload_Flags_Reliability" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+          <Argument name="Payload_BufLimit" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="TO_LAB_AddPacketCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1880C00000090200" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Stream_Value">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Flags_Priority">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>96</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Flags_Reliability">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>104</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_BufLimit">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>112</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <FixedValueEntry name="TrailingPadding" binaryValue="00" sizeInBits="8" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="TO_LAB_RemovePacketCmd" shortDescription="TO_LAB_RemovePacketCmd_t; MID=0x1880; FC=4; sizeof=12">
+        <ArgumentList>
+          <Argument name="Payload_Stream_Value" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="TO_LAB_RemovePacketCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1880C00000050400" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Stream_Value">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="TO_LAB_RemoveAllCmd" shortDescription="TO_LAB_RemoveAllCmd_t; MID=0x1880; FC=5; sizeof=8">
+        <CommandContainer name="TO_LAB_RemoveAllCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1880C00000010500" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="TO_LAB_EnableOutputCmd" shortDescription="TO_LAB_EnableOutputCmd_t; MID=0x1880; FC=6; sizeof=24">
+        <ArgumentList>
+          <Argument name="Payload_dest_IP" argumentTypeRef="string128_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="TO_LAB_EnableOutputCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1880C00000110600" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_dest_IP">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="TO_LAB_SendHkCmd" shortDescription="TO_LAB_SendHkCmd_t; MID=0x1881; FC=0; sizeof=8">
+        <CommandContainer name="TO_LAB_SendHkCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1881C00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+    </MetaCommandSet>
+  </CommandMetaData>
+</SpaceSystem>

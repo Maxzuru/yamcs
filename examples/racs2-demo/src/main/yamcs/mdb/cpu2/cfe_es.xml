@@ -1,0 +1,1496 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SpaceSystem xmlns="http://www.omg.org/spec/XTCE/20180204" name="CFE_ES" shortDescription="Upstream cFS native_std CPU2: CFE_ES">
+  <Header version="1.0" validationStatus="Draft" />
+  <TelemetryMetaData>
+    <ParameterTypeSet>
+      <IntegerParameterType name="unsigned8_leastSignificantByteFirst" signed="false" sizeInBits="8">
+        <IntegerDataEncoding sizeInBits="8" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <IntegerParameterType name="unsigned16_leastSignificantByteFirst" signed="false" sizeInBits="16">
+        <IntegerDataEncoding sizeInBits="16" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <IntegerParameterType name="unsigned64_leastSignificantByteFirst" signed="false" sizeInBits="64">
+        <IntegerDataEncoding sizeInBits="64" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <IntegerParameterType name="unsigned32_leastSignificantByteFirst" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <StringParameterType name="string160_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>160</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringParameterType>
+      <StringParameterType name="string512_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>512</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringParameterType>
+    </ParameterTypeSet>
+    <ParameterSet>
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_CommandCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CommandCounter (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_CommandErrorCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CommandErrorCounter (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_CFECoreChecksum" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.CFECoreChecksum (uint16)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_CFEMajorVersion" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CFEMajorVersion (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_CFEMinorVersion" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CFEMinorVersion (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_CFERevision" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CFERevision (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_CFEMissionRevision" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CFEMissionRevision (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_OSALMajorVersion" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.OSALMajorVersion (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_OSALMinorVersion" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.OSALMinorVersion (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_OSALRevision" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.OSALRevision (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_OSALMissionRevision" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.OSALMissionRevision (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PSPMajorVersion" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PSPMajorVersion (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PSPMinorVersion" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PSPMinorVersion (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PSPRevision" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PSPRevision (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PSPMissionRevision" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PSPMissionRevision (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_SysLogBytesUsed" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.SysLogBytesUsed (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_SysLogSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.SysLogSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_SysLogEntries" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.SysLogEntries (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_SysLogMode" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.SysLogMode (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_ERLogIndex" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ERLogIndex (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_ERLogEntries" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ERLogEntries (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_RegisteredCoreApps" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.RegisteredCoreApps (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_RegisteredExternalApps" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.RegisteredExternalApps (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_RegisteredTasks" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.RegisteredTasks (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_RegisteredLibs" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.RegisteredLibs (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_ResetType" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ResetType (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_ResetSubtype" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ResetSubtype (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_ProcessorResets" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.ProcessorResets (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_MaxProcessorResets" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.MaxProcessorResets (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_BootSource" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.BootSource (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfState" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PerfState (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfMode" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PerfMode (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerCount" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerCount (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_0" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[0] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_1" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[1] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_2" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[2] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_3" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[3] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_4" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[4] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_5" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[5] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_6" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[6] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_7" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[7] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_8" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[8] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_9" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[9] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_10" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[10] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_11" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[11] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_12" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[12] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_13" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[13] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_14" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[14] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_15" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfFilterMask[15] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_0" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[0] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_1" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[1] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_2" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[2] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_3" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[3] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_4" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[4] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_5" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[5] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_6" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[6] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_7" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[7] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_8" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[8] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_9" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[9] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_10" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[10] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_11" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[11] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_12" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[12] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_13" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[13] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_14" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[14] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_15" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.PerfTriggerMask[15] (uint8)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfDataStart" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PerfDataStart (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfDataEnd" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PerfDataEnd (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfDataCount" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PerfDataCount (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_PerfDataToWrite" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PerfDataToWrite (uint32)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_HeapBytesFree" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.HeapBytesFree (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_HeapBlocksFree" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.HeapBlocksFree (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_HousekeepingTlm_Payload_HeapMaxBlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.HeapMaxBlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_ResourceId" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppInfo.ResourceId (CFE_ResourceId_t)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_Type" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppInfo.Type (uint32)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_Name" parameterTypeRef="string160_leastSignificantByteFirst" shortDescription="Payload.AppInfo.Name (char [20])" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_EntryPoint" parameterTypeRef="string160_leastSignificantByteFirst" shortDescription="Payload.AppInfo.EntryPoint (char [20])" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_FileName" parameterTypeRef="string512_leastSignificantByteFirst" shortDescription="Payload.AppInfo.FileName (char [64])" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_StackSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.AppInfo.StackSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_AddressesAreValid" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppInfo.AddressesAreValid (uint32)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_Padding1_0" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppInfo.Padding1[0] (uint8)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_Padding1_1" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppInfo.Padding1[1] (uint8)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_Padding1_2" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppInfo.Padding1[2] (uint8)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_Padding1_3" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppInfo.Padding1[3] (uint8)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_CodeAddress" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.AppInfo.CodeAddress (CFE_ES_MemAddress_t)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_CodeSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.AppInfo.CodeSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_DataAddress" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.AppInfo.DataAddress (CFE_ES_MemAddress_t)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_DataSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.AppInfo.DataSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_BSSAddress" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.AppInfo.BSSAddress (CFE_ES_MemAddress_t)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_BSSSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.AppInfo.BSSSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_StartAddress" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.AppInfo.StartAddress (CFE_ES_MemAddress_t)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_ExceptionAction" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppInfo.ExceptionAction (CFE_ES_ExceptionAction_Enum_t)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_Padding2" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppInfo.Padding2 (uint8)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_Priority" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppInfo.Priority (CFE_ES_TaskPriority_Atom_t)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_MainTaskId" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppInfo.MainTaskId (CFE_ES_TaskId_t)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_ExecutionCounter" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppInfo.ExecutionCounter (uint32)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_MainTaskName" parameterTypeRef="string160_leastSignificantByteFirst" shortDescription="Payload.AppInfo.MainTaskName (char [20])" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_NumOfChildTasks" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppInfo.NumOfChildTasks (uint32)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_Padding3_0" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppInfo.Padding3[0] (uint8)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_Padding3_1" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppInfo.Padding3[1] (uint8)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_Padding3_2" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppInfo.Padding3[2] (uint8)" />
+      <Parameter name="CFE_ES_OneAppTlm_Payload_AppInfo_Padding3_3" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppInfo.Padding3[3] (uint8)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolHandle" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolHandle (CFE_ES_MemHandle_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_Padding_0" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding[0] (uint8)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_Padding_1" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding[1] (uint8)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_Padding_2" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding[2] (uint8)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_Padding_3" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding[3] (uint8)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_PoolSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.PoolSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_NumBlocksRequested" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.NumBlocksRequested (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_CheckErrCtr" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.CheckErrCtr (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_NumFreeBytes" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.NumFreeBytes (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_0__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[0].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_0__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[0].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_0__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[0].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_1__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[1].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_1__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[1].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_1__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[1].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_2__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[2].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_2__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[2].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_2__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[2].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_3__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[3].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_3__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[3].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_3__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[3].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_4__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[4].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_4__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[4].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_4__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[4].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_5__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[5].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_5__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[5].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_5__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[5].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_6__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[6].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_6__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[6].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_6__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[6].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_7__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[7].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_7__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[7].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_7__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[7].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_8__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[8].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_8__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[8].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_8__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[8].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_9__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[9].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_9__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[9].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_9__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[9].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_10__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[10].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_10__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[10].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_10__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[10].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_11__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[11].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_11__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[11].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_11__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[11].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_12__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[12].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_12__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[12].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_12__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[12].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_13__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[13].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_13__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[13].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_13__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[13].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_14__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[14].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_14__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[14].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_14__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[14].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_15__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[15].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_15__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[15].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_15__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[15].NumFree (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_16__BlockSize" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[16].BlockSize (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_16__NumCreated" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[16].NumCreated (uint32)" />
+      <Parameter name="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_16__NumFree" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PoolStats.BlockStats[16].NumFree (uint32)" />
+    </ParameterSet>
+    <ContainerSet>
+      <SequenceContainer name="CFE_ES_HousekeepingTlm" shortDescription="CFE_ES_HousekeepingTlm_t; MID=0x0900; sizeof=184">
+        <EntryList>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_CommandCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>128</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_CommandErrorCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>136</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_CFECoreChecksum">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>144</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_CFEMajorVersion">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>160</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_CFEMinorVersion">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>168</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_CFERevision">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>176</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_CFEMissionRevision">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>184</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_OSALMajorVersion">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>192</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_OSALMinorVersion">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>200</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_OSALRevision">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>208</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_OSALMissionRevision">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>216</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PSPMajorVersion">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>224</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PSPMinorVersion">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>232</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PSPRevision">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>240</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PSPMissionRevision">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>248</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_SysLogBytesUsed">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>256</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_SysLogSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>320</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_SysLogEntries">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>384</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_SysLogMode">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>416</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_ERLogIndex">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>448</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_ERLogEntries">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>480</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_RegisteredCoreApps">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>512</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_RegisteredExternalApps">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>544</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_RegisteredTasks">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>576</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_RegisteredLibs">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>608</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_ResetType">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>640</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_ResetSubtype">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>672</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_ProcessorResets">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>704</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_MaxProcessorResets">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>736</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_BootSource">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>768</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfState">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>800</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfMode">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>832</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerCount">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>864</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_0">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>896</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>904</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_2">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>912</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_3">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>920</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_4">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>928</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_5">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>936</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_6">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>944</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_7">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>952</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_8">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>960</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_9">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>968</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_10">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>976</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_11">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>984</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_12">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>992</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_13">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1000</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_14">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1008</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfFilterMask_15">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1016</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_0">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1024</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1032</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_2">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1040</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_3">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1048</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_4">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1056</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_5">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1064</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_6">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1072</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_7">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1080</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_8">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1088</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_9">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1096</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_10">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1104</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_11">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1112</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_12">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1120</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_13">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1128</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_14">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1136</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfTriggerMask_15">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1144</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfDataStart">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1152</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfDataEnd">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1184</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfDataCount">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1216</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_PerfDataToWrite">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1248</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_HeapBytesFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1280</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_HeapBlocksFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1344</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_HousekeepingTlm_Payload_HeapMaxBlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1408</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
+          <RestrictionCriteria>
+            <Comparison parameterRef="/cFS/MessageId" value="2304" />
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="CFE_ES_OneAppTlm" shortDescription="CFE_ES_OneAppTlm_t; MID=0x090B; sizeof=240">
+        <EntryList>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_ResourceId">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>128</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_Type">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>160</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_Name">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>192</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_EntryPoint">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>352</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_FileName">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>512</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_StackSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1024</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_AddressesAreValid">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1088</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_Padding1_0">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1120</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_Padding1_1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1128</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_Padding1_2">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1136</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_Padding1_3">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1144</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_CodeAddress">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1152</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_CodeSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1216</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_DataAddress">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1280</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_DataSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1344</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_BSSAddress">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1408</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_BSSSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1472</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_StartAddress">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1536</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_ExceptionAction">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1600</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_Padding2">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1608</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_Priority">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1616</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_MainTaskId">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1632</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_ExecutionCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1664</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_MainTaskName">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1696</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_NumOfChildTasks">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1856</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_Padding3_0">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1888</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_Padding3_1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1896</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_Padding3_2">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1904</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_OneAppTlm_Payload_AppInfo_Padding3_3">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1912</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
+          <RestrictionCriteria>
+            <Comparison parameterRef="/cFS/MessageId" value="2315" />
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="CFE_ES_MemStatsTlm" shortDescription="CFE_ES_MemStatsTlm_t; MID=0x0910; sizeof=320">
+        <EntryList>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolHandle">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>128</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_Padding_0">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>160</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_Padding_1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>168</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_Padding_2">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>176</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_Padding_3">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>184</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_PoolSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>192</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_NumBlocksRequested">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>256</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_CheckErrCtr">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>288</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_NumFreeBytes">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>320</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_0__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>384</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_0__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>448</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_0__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>480</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_1__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>512</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_1__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>576</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_1__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>608</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_2__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>640</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_2__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>704</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_2__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>736</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_3__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>768</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_3__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>832</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_3__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>864</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_4__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>896</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_4__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>960</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_4__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>992</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_5__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1024</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_5__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1088</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_5__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1120</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_6__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1152</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_6__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1216</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_6__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1248</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_7__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1280</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_7__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1344</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_7__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1376</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_8__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1408</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_8__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1472</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_8__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1504</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_9__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1536</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_9__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1600</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_9__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1632</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_10__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1664</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_10__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1728</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_10__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1760</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_11__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1792</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_11__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1856</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_11__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1888</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_12__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1920</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_12__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1984</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_12__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>2016</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_13__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>2048</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_13__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>2112</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_13__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>2144</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_14__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>2176</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_14__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>2240</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_14__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>2272</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_15__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>2304</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_15__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>2368</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_15__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>2400</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_16__BlockSize">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>2432</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_16__NumCreated">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>2496</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_ES_MemStatsTlm_Payload_PoolStats_BlockStats_16__NumFree">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>2528</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
+          <RestrictionCriteria>
+            <Comparison parameterRef="/cFS/MessageId" value="2320" />
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+    </ContainerSet>
+  </TelemetryMetaData>
+  <CommandMetaData>
+    <ArgumentTypeSet>
+      <IntegerArgumentType name="unsigned16_leastSignificantByteFirst" signed="false" sizeInBits="16">
+        <IntegerDataEncoding sizeInBits="16" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerArgumentType>
+      <StringArgumentType name="string160_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>160</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringArgumentType>
+      <StringArgumentType name="string512_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>512</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringArgumentType>
+      <IntegerArgumentType name="unsigned64_leastSignificantByteFirst" signed="false" sizeInBits="64">
+        <IntegerDataEncoding sizeInBits="64" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerArgumentType>
+      <IntegerArgumentType name="unsigned8_leastSignificantByteFirst" signed="false" sizeInBits="8">
+        <IntegerDataEncoding sizeInBits="8" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerArgumentType>
+      <IntegerArgumentType name="unsigned32_leastSignificantByteFirst" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerArgumentType>
+      <StringArgumentType name="string320_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>320</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringArgumentType>
+    </ArgumentTypeSet>
+    <MetaCommandSet>
+      <MetaCommand name="CFE_ES_NoopCmd" shortDescription="CFE_ES_NoopCmd_t; MID=0x1906; FC=0; sizeof=8">
+        <CommandContainer name="CFE_ES_NoopCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_ResetCountersCmd" shortDescription="CFE_ES_ResetCountersCmd_t; MID=0x1906; FC=1; sizeof=8">
+        <CommandContainer name="CFE_ES_ResetCountersCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000010100" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_RestartCmd" shortDescription="CFE_ES_RestartCmd_t; MID=0x1906; FC=2; sizeof=10">
+        <ArgumentList>
+          <Argument name="Payload_RestartType" argumentTypeRef="unsigned16_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_RestartCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000030200" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_RestartType">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_StartAppCmd" shortDescription="CFE_ES_StartAppCmd_t; MID=0x1906; FC=4; sizeof=128">
+        <ArgumentList>
+          <Argument name="Payload_Application" argumentTypeRef="string160_leastSignificantByteFirst" />
+          <Argument name="Payload_AppEntryPoint" argumentTypeRef="string160_leastSignificantByteFirst" />
+          <Argument name="Payload_AppFileName" argumentTypeRef="string512_leastSignificantByteFirst" />
+          <Argument name="Payload_StackSize" argumentTypeRef="unsigned64_leastSignificantByteFirst" />
+          <Argument name="Payload_ExceptionAction" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+          <Argument name="Payload_Padding1" argumentTypeRef="unsigned8_leastSignificantByteFirst" initialValue="0" />
+          <Argument name="Payload_Priority" argumentTypeRef="unsigned16_leastSignificantByteFirst" />
+          <Argument name="Payload_Padding2_0" argumentTypeRef="unsigned8_leastSignificantByteFirst" initialValue="0" />
+          <Argument name="Payload_Padding2_1" argumentTypeRef="unsigned8_leastSignificantByteFirst" initialValue="0" />
+          <Argument name="Payload_Padding2_2" argumentTypeRef="unsigned8_leastSignificantByteFirst" initialValue="0" />
+          <Argument name="Payload_Padding2_3" argumentTypeRef="unsigned8_leastSignificantByteFirst" initialValue="0" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_StartAppCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000790400" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Application">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_AppEntryPoint">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>224</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_AppFileName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>384</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_StackSize">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>896</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_ExceptionAction">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>960</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Padding1">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>968</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Priority">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>976</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Padding2_0">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>992</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Padding2_1">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>1000</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Padding2_2">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>1008</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Padding2_3">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>1016</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_StopAppCmd" shortDescription="CFE_ES_StopAppCmd_t; MID=0x1906; FC=5; sizeof=28">
+        <ArgumentList>
+          <Argument name="Payload_Application" argumentTypeRef="string160_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_StopAppCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000150500" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Application">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_RestartAppCmd" shortDescription="CFE_ES_RestartAppCmd_t; MID=0x1906; FC=6; sizeof=28">
+        <ArgumentList>
+          <Argument name="Payload_Application" argumentTypeRef="string160_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_RestartAppCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000150600" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Application">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_ReloadAppCmd" shortDescription="CFE_ES_ReloadAppCmd_t; MID=0x1906; FC=7; sizeof=92">
+        <ArgumentList>
+          <Argument name="Payload_Application" argumentTypeRef="string160_leastSignificantByteFirst" />
+          <Argument name="Payload_AppFileName" argumentTypeRef="string512_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_ReloadAppCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000550700" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Application">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_AppFileName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>224</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_QueryOneCmd" shortDescription="CFE_ES_QueryOneCmd_t; MID=0x1906; FC=8; sizeof=28">
+        <ArgumentList>
+          <Argument name="Payload_Application" argumentTypeRef="string160_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_QueryOneCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000150800" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Application">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_QueryAllCmd" shortDescription="CFE_ES_QueryAllCmd_t; MID=0x1906; FC=9; sizeof=72">
+        <ArgumentList>
+          <Argument name="Payload_FileName" argumentTypeRef="string512_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_QueryAllCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000410900" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_FileName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_QueryAllTasksCmd" shortDescription="CFE_ES_QueryAllTasksCmd_t; MID=0x1906; FC=24; sizeof=72">
+        <ArgumentList>
+          <Argument name="Payload_FileName" argumentTypeRef="string512_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_QueryAllTasksCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000411800" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_FileName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_ClearSysLogCmd" shortDescription="CFE_ES_ClearSysLogCmd_t; MID=0x1906; FC=10; sizeof=8">
+        <CommandContainer name="CFE_ES_ClearSysLogCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000010A00" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_WriteSysLogCmd" shortDescription="CFE_ES_WriteSysLogCmd_t; MID=0x1906; FC=11; sizeof=72">
+        <ArgumentList>
+          <Argument name="Payload_FileName" argumentTypeRef="string512_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_WriteSysLogCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000410B00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_FileName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_OverWriteSysLogCmd" shortDescription="CFE_ES_OverWriteSysLogCmd_t; MID=0x1906; FC=18; sizeof=12">
+        <ArgumentList>
+          <Argument name="Payload_Mode" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_OverWriteSysLogCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000051200" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Mode">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_ClearERLogCmd" shortDescription="CFE_ES_ClearERLogCmd_t; MID=0x1906; FC=12; sizeof=8">
+        <CommandContainer name="CFE_ES_ClearERLogCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000010C00" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_WriteERLogCmd" shortDescription="CFE_ES_WriteERLogCmd_t; MID=0x1906; FC=13; sizeof=72">
+        <ArgumentList>
+          <Argument name="Payload_FileName" argumentTypeRef="string512_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_WriteERLogCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000410D00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_FileName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_StartPerfDataCmd" shortDescription="CFE_ES_StartPerfDataCmd_t; MID=0x1906; FC=14; sizeof=12">
+        <ArgumentList>
+          <Argument name="Payload_TriggerMode" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_StartPerfDataCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000050E00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_TriggerMode">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_StopPerfDataCmd" shortDescription="CFE_ES_StopPerfDataCmd_t; MID=0x1906; FC=15; sizeof=72">
+        <ArgumentList>
+          <Argument name="Payload_DataFileName" argumentTypeRef="string512_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_StopPerfDataCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000410F00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_DataFileName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_SetPerfFilterMaskCmd" shortDescription="CFE_ES_SetPerfFilterMaskCmd_t; MID=0x1906; FC=16; sizeof=10">
+        <ArgumentList>
+          <Argument name="Payload_FilterMaskNum" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+          <Argument name="Payload_FilterMask" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_SetPerfFilterMaskCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000031000" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_FilterMaskNum">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_FilterMask">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>72</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_SetPerfTriggerMaskCmd" shortDescription="CFE_ES_SetPerfTriggerMaskCmd_t; MID=0x1906; FC=17; sizeof=10">
+        <ArgumentList>
+          <Argument name="Payload_TriggerMaskNum" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+          <Argument name="Payload_TriggerMask" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_SetPerfTriggerMaskCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000031100" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_TriggerMaskNum">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_TriggerMask">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>72</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_ResetPRCountCmd" shortDescription="CFE_ES_ResetPRCountCmd_t; MID=0x1906; FC=19; sizeof=8">
+        <CommandContainer name="CFE_ES_ResetPRCountCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000011300" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_SetMaxPRCountCmd" shortDescription="CFE_ES_SetMaxPRCountCmd_t; MID=0x1906; FC=20; sizeof=10">
+        <ArgumentList>
+          <Argument name="Payload_MaxPRCount" argumentTypeRef="unsigned16_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_SetMaxPRCountCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000031400" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_MaxPRCount">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_DeleteCDSCmd" shortDescription="CFE_ES_DeleteCDSCmd_t; MID=0x1906; FC=21; sizeof=48">
+        <ArgumentList>
+          <Argument name="Payload_CdsName" argumentTypeRef="string320_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_DeleteCDSCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000291500" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_CdsName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_SendMemPoolStatsCmd" shortDescription="CFE_ES_SendMemPoolStatsCmd_t; MID=0x1906; FC=22; sizeof=32">
+        <ArgumentList>
+          <Argument name="Payload_Application" argumentTypeRef="string160_leastSignificantByteFirst" />
+          <Argument name="Payload_PoolHandle" argumentTypeRef="unsigned32_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_SendMemPoolStatsCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000191600" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_Application">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_PoolHandle">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>224</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_DumpCDSRegistryCmd" shortDescription="CFE_ES_DumpCDSRegistryCmd_t; MID=0x1906; FC=23; sizeof=72">
+        <ArgumentList>
+          <Argument name="Payload_DumpFilename" argumentTypeRef="string512_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_ES_DumpCDSRegistryCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1906C00000411700" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_DumpFilename">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_ES_SendHkCmd" shortDescription="CFE_ES_SendHkCmd_t; MID=0x1908; FC=0; sizeof=8">
+        <CommandContainer name="CFE_ES_SendHkCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1908C00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+    </MetaCommandSet>
+  </CommandMetaData>
+</SpaceSystem>

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SpaceSystem xmlns="http://www.omg.org/spec/XTCE/20180204" name="CI_LAB" shortDescription="Upstream cFS native_std CPU2: CI_LAB">
+  <Header version="1.0" validationStatus="Draft" />
+  <TelemetryMetaData>
+    <ParameterTypeSet>
+      <IntegerParameterType name="unsigned8_leastSignificantByteFirst" signed="false" sizeInBits="8">
+        <IntegerDataEncoding sizeInBits="8" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <IntegerParameterType name="unsigned32_leastSignificantByteFirst" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+    </ParameterTypeSet>
+    <ParameterSet>
+      <Parameter name="CI_LAB_HkTlm_Payload_CommandCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CommandCounter (uint8)" />
+      <Parameter name="CI_LAB_HkTlm_Payload_CommandErrorCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CommandErrorCounter (uint8)" />
+      <Parameter name="CI_LAB_HkTlm_Payload_EnableChecksums" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.EnableChecksums (uint8)" />
+      <Parameter name="CI_LAB_HkTlm_Payload_SocketConnected" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.SocketConnected (uint8)" />
+      <Parameter name="CI_LAB_HkTlm_Payload_IngestPackets" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.IngestPackets (uint32)" />
+      <Parameter name="CI_LAB_HkTlm_Payload_IngestErrors" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.IngestErrors (uint32)" />
+    </ParameterSet>
+    <ContainerSet>
+      <SequenceContainer name="CI_LAB_HkTlm" shortDescription="CI_LAB_HkTlm_t; MID=0x0984; sizeof=28">
+        <EntryList>
+          <ParameterRefEntry parameterRef="CI_LAB_HkTlm_Payload_CommandCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>128</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CI_LAB_HkTlm_Payload_CommandErrorCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>136</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CI_LAB_HkTlm_Payload_EnableChecksums">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>144</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CI_LAB_HkTlm_Payload_SocketConnected">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>152</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CI_LAB_HkTlm_Payload_IngestPackets">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>160</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CI_LAB_HkTlm_Payload_IngestErrors">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>192</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
+          <RestrictionCriteria>
+            <Comparison parameterRef="/cFS/MessageId" value="2436" />
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+    </ContainerSet>
+  </TelemetryMetaData>
+  <CommandMetaData>
+    <MetaCommandSet>
+      <MetaCommand name="CI_LAB_NoopCmd" shortDescription="CI_LAB_NoopCmd_t; MID=0x1984; FC=0; sizeof=8">
+        <CommandContainer name="CI_LAB_NoopCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1984C00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CI_LAB_ResetCountersCmd" shortDescription="CI_LAB_ResetCountersCmd_t; MID=0x1984; FC=1; sizeof=8">
+        <CommandContainer name="CI_LAB_ResetCountersCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1984C00000010100" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CI_LAB_SendHkCmd" shortDescription="CI_LAB_SendHkCmd_t; MID=0x1985; FC=0; sizeof=8">
+        <CommandContainer name="CI_LAB_SendHkCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1985C00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CI_LAB_ReadUplinkCmd" shortDescription="CI_LAB_ReadUplinkCmd_t; MID=0x1986; FC=0; sizeof=8">
+        <CommandContainer name="CI_LAB_ReadUplinkCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1986C00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+    </MetaCommandSet>
+  </CommandMetaData>
+</SpaceSystem>

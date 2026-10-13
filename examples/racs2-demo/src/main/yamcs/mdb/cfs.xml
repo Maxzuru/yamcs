@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SpaceSystem xmlns="http://www.omg.org/spec/XTCE/20180204" name="cFS" shortDescription="Upstream cFS native_std CPU1: common headers">
+  <Header version="1.0" validationStatus="Draft" />
+  <TelemetryMetaData>
+    <ParameterTypeSet>
+      <IntegerParameterType name="unsigned16_mostSignificantByteFirst" signed="false" sizeInBits="16">
+        <IntegerDataEncoding sizeInBits="16" byteOrder="mostSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <IntegerParameterType name="unsigned32_mostSignificantByteFirst" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" byteOrder="mostSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+    </ParameterTypeSet>
+    <ParameterSet>
+      <Parameter name="MessageId" parameterTypeRef="unsigned16_mostSignificantByteFirst" />
+      <Parameter name="Sequence" parameterTypeRef="unsigned16_mostSignificantByteFirst" />
+      <Parameter name="PacketLength" parameterTypeRef="unsigned16_mostSignificantByteFirst" />
+      <Parameter name="Seconds" parameterTypeRef="unsigned32_mostSignificantByteFirst" />
+      <Parameter name="Subseconds" parameterTypeRef="unsigned16_mostSignificantByteFirst" />
+    </ParameterSet>
+    <ContainerSet>
+      <SequenceContainer name="CCSDS_Telemetry">
+        <EntryList>
+          <ParameterRefEntry parameterRef="MessageId">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="Sequence">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>16</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="PacketLength">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>32</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>48</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>80</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+      </SequenceContainer>
+    </ContainerSet>
+  </TelemetryMetaData>
+</SpaceSystem>

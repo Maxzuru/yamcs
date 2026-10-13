@@ -1,0 +1,9 @@
+services:
+  - class: org.yamcs.http.HttpServer
+instances:
+  - racs2-demo
+# Relative to the runtime directory (examples/racs2-demo/target/yamcs).
+dataDir: data
+secretKey: "cfs-local-example"
+yamcs-web:
+  tag: "racs2-demo"

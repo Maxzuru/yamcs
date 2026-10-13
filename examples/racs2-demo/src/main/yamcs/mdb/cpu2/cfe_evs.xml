@@ -1,0 +1,1040 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SpaceSystem xmlns="http://www.omg.org/spec/XTCE/20180204" name="CFE_EVS" shortDescription="Upstream cFS native_std CPU2: CFE_EVS">
+  <Header version="1.0" validationStatus="Draft" />
+  <TelemetryMetaData>
+    <ParameterTypeSet>
+      <IntegerParameterType name="unsigned8_leastSignificantByteFirst" signed="false" sizeInBits="8">
+        <IntegerDataEncoding sizeInBits="8" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <IntegerParameterType name="unsigned16_leastSignificantByteFirst" signed="false" sizeInBits="16">
+        <IntegerDataEncoding sizeInBits="16" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <IntegerParameterType name="unsigned32_leastSignificantByteFirst" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <StringParameterType name="string160_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>160</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringParameterType>
+      <StringParameterType name="string976_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>976</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringParameterType>
+    </ParameterTypeSet>
+    <ParameterSet>
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_CommandCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CommandCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_CommandErrorCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CommandErrorCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_MessageFormatMode" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.MessageFormatMode (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_MessageTruncCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.MessageTruncCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_UnregisteredAppCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.UnregisteredAppCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_OutputPort" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.OutputPort (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_LogFullFlag" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.LogFullFlag (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_LogMode" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.LogMode (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_MessageSendCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.MessageSendCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_LogOverflowCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.LogOverflowCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_LogEnabled" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.LogEnabled (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_Padding_0" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding[0] (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_Padding_1" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding[1] (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_Padding_2" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding[2] (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_0__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[0].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_0__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[0].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_0__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[0].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_0__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[0].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_1__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[1].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_1__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[1].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_1__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[1].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_1__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[1].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_2__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[2].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_2__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[2].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_2__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[2].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_2__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[2].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_3__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[3].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_3__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[3].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_3__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[3].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_3__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[3].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_4__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[4].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_4__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[4].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_4__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[4].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_4__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[4].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_5__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[5].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_5__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[5].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_5__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[5].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_5__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[5].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_6__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[6].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_6__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[6].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_6__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[6].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_6__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[6].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_7__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[7].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_7__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[7].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_7__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[7].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_7__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[7].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_8__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[8].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_8__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[8].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_8__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[8].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_8__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[8].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_9__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[9].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_9__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[9].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_9__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[9].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_9__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[9].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_10__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[10].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_10__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[10].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_10__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[10].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_10__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[10].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_11__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[11].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_11__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[11].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_11__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[11].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_11__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[11].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_12__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[12].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_12__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[12].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_12__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[12].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_12__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[12].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_13__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[13].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_13__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[13].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_13__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[13].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_13__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[13].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_14__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[14].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_14__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[14].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_14__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[14].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_14__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[14].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_15__AppID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.AppData[15].AppID (CFE_ES_AppId_t)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_15__AppMessageSentCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.AppData[15].AppMessageSentCounter (uint16)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_15__AppEnableStatus" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[15].AppEnableStatus (uint8)" />
+      <Parameter name="CFE_EVS_HousekeepingTlm_Payload_AppData_15__AppMessageSquelchedCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.AppData[15].AppMessageSquelchedCounter (uint8)" />
+      <Parameter name="CFE_EVS_LongEventTlm_Payload_PacketID_AppName" parameterTypeRef="string160_leastSignificantByteFirst" shortDescription="Payload.PacketID.AppName (char [20])" />
+      <Parameter name="CFE_EVS_LongEventTlm_Payload_PacketID_EventID" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.PacketID.EventID (uint16)" />
+      <Parameter name="CFE_EVS_LongEventTlm_Payload_PacketID_EventType" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.PacketID.EventType (CFE_EVS_EventType_Enum_t)" />
+      <Parameter name="CFE_EVS_LongEventTlm_Payload_PacketID_SpacecraftID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PacketID.SpacecraftID (uint32)" />
+      <Parameter name="CFE_EVS_LongEventTlm_Payload_PacketID_ProcessorID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PacketID.ProcessorID (uint32)" />
+      <Parameter name="CFE_EVS_LongEventTlm_Payload_Message" parameterTypeRef="string976_leastSignificantByteFirst" shortDescription="Payload.Message (char [122])" />
+      <Parameter name="CFE_EVS_LongEventTlm_Payload_Padding_0" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding[0] (uint8)" />
+      <Parameter name="CFE_EVS_LongEventTlm_Payload_Padding_1" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding[1] (uint8)" />
+      <Parameter name="CFE_EVS_ShortEventTlm_Payload_PacketID_AppName" parameterTypeRef="string160_leastSignificantByteFirst" shortDescription="Payload.PacketID.AppName (char [20])" />
+      <Parameter name="CFE_EVS_ShortEventTlm_Payload_PacketID_EventID" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.PacketID.EventID (uint16)" />
+      <Parameter name="CFE_EVS_ShortEventTlm_Payload_PacketID_EventType" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.PacketID.EventType (CFE_EVS_EventType_Enum_t)" />
+      <Parameter name="CFE_EVS_ShortEventTlm_Payload_PacketID_SpacecraftID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PacketID.SpacecraftID (uint32)" />
+      <Parameter name="CFE_EVS_ShortEventTlm_Payload_PacketID_ProcessorID" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.PacketID.ProcessorID (uint32)" />
+    </ParameterSet>
+    <ContainerSet>
+      <SequenceContainer name="CFE_EVS_HousekeepingTlm" shortDescription="CFE_EVS_HousekeepingTlm_t; MID=0x0901; sizeof=160">
+        <EntryList>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_CommandCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>128</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_CommandErrorCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>136</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_MessageFormatMode">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>144</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_MessageTruncCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>152</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_UnregisteredAppCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>160</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_OutputPort">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>168</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_LogFullFlag">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>176</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_LogMode">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>184</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_MessageSendCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>192</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_LogOverflowCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>208</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_LogEnabled">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>224</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_Padding_0">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>232</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_Padding_1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>240</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_Padding_2">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>248</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_0__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>256</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_0__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>288</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_0__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>304</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_0__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>312</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_1__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>320</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_1__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>352</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_1__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>368</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_1__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>376</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_2__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>384</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_2__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>416</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_2__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>432</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_2__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>440</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_3__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>448</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_3__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>480</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_3__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>496</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_3__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>504</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_4__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>512</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_4__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>544</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_4__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>560</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_4__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>568</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_5__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>576</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_5__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>608</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_5__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>624</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_5__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>632</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_6__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>640</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_6__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>672</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_6__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>688</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_6__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>696</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_7__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>704</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_7__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>736</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_7__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>752</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_7__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>760</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_8__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>768</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_8__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>800</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_8__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>816</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_8__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>824</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_9__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>832</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_9__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>864</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_9__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>880</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_9__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>888</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_10__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>896</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_10__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>928</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_10__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>944</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_10__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>952</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_11__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>960</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_11__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>992</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_11__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1008</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_11__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1016</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_12__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1024</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_12__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1056</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_12__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1072</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_12__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1080</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_13__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1088</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_13__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1120</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_13__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1136</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_13__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1144</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_14__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1152</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_14__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1184</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_14__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1200</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_14__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1208</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_15__AppID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1216</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_15__AppMessageSentCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1248</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_15__AppEnableStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1264</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_HousekeepingTlm_Payload_AppData_15__AppMessageSquelchedCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1272</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
+          <RestrictionCriteria>
+            <Comparison parameterRef="/cFS/MessageId" value="2305" />
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="CFE_EVS_LongEventTlm" shortDescription="CFE_EVS_LongEventTlm_t; MID=0x0908; sizeof=172">
+        <EntryList>
+          <ParameterRefEntry parameterRef="CFE_EVS_LongEventTlm_Payload_PacketID_AppName">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>128</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_LongEventTlm_Payload_PacketID_EventID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>288</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_LongEventTlm_Payload_PacketID_EventType">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>304</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_LongEventTlm_Payload_PacketID_SpacecraftID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>320</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_LongEventTlm_Payload_PacketID_ProcessorID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>352</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_LongEventTlm_Payload_Message">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>384</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_LongEventTlm_Payload_Padding_0">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1360</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_LongEventTlm_Payload_Padding_1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1368</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
+          <RestrictionCriteria>
+            <Comparison parameterRef="/cFS/MessageId" value="2312" />
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="CFE_EVS_ShortEventTlm" shortDescription="CFE_EVS_ShortEventTlm_t; MID=0x0909; sizeof=48">
+        <EntryList>
+          <ParameterRefEntry parameterRef="CFE_EVS_ShortEventTlm_Payload_PacketID_AppName">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>128</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_ShortEventTlm_Payload_PacketID_EventID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>288</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_ShortEventTlm_Payload_PacketID_EventType">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>304</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_ShortEventTlm_Payload_PacketID_SpacecraftID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>320</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_EVS_ShortEventTlm_Payload_PacketID_ProcessorID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>352</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
+          <RestrictionCriteria>
+            <Comparison parameterRef="/cFS/MessageId" value="2313" />
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+    </ContainerSet>
+  </TelemetryMetaData>
+  <CommandMetaData>
+    <ArgumentTypeSet>
+      <IntegerArgumentType name="unsigned8_leastSignificantByteFirst" signed="false" sizeInBits="8">
+        <IntegerDataEncoding sizeInBits="8" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerArgumentType>
+      <StringArgumentType name="string160_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>160</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringArgumentType>
+      <IntegerArgumentType name="unsigned16_leastSignificantByteFirst" signed="false" sizeInBits="16">
+        <IntegerDataEncoding sizeInBits="16" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerArgumentType>
+      <StringArgumentType name="string512_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>512</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringArgumentType>
+    </ArgumentTypeSet>
+    <MetaCommandSet>
+      <MetaCommand name="CFE_EVS_NoopCmd" shortDescription="CFE_EVS_NoopCmd_t; MID=0x1901; FC=0; sizeof=8">
+        <CommandContainer name="CFE_EVS_NoopCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_ResetCountersCmd" shortDescription="CFE_EVS_ResetCountersCmd_t; MID=0x1901; FC=1; sizeof=8">
+        <CommandContainer name="CFE_EVS_ResetCountersCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000010100" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_EnableEventTypeCmd" shortDescription="CFE_EVS_EnableEventTypeCmd_t; MID=0x1901; FC=2; sizeof=10">
+        <ArgumentList>
+          <Argument name="Payload_BitMask" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+          <Argument name="Payload_Spare" argumentTypeRef="unsigned8_leastSignificantByteFirst" initialValue="0" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_EnableEventTypeCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000030200" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_BitMask">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Spare">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>72</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_DisableEventTypeCmd" shortDescription="CFE_EVS_DisableEventTypeCmd_t; MID=0x1901; FC=3; sizeof=10">
+        <ArgumentList>
+          <Argument name="Payload_BitMask" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+          <Argument name="Payload_Spare" argumentTypeRef="unsigned8_leastSignificantByteFirst" initialValue="0" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_DisableEventTypeCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000030300" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_BitMask">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Spare">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>72</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_SetEventFormatModeCmd" shortDescription="CFE_EVS_SetEventFormatModeCmd_t; MID=0x1901; FC=4; sizeof=10">
+        <ArgumentList>
+          <Argument name="Payload_MsgFormat" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+          <Argument name="Payload_Spare" argumentTypeRef="unsigned8_leastSignificantByteFirst" initialValue="0" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_SetEventFormatModeCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000030400" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_MsgFormat">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Spare">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>72</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_EnableAppEventTypeCmd" shortDescription="CFE_EVS_EnableAppEventTypeCmd_t; MID=0x1901; FC=5; sizeof=30">
+        <ArgumentList>
+          <Argument name="Payload_AppName" argumentTypeRef="string160_leastSignificantByteFirst" />
+          <Argument name="Payload_BitMask" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+          <Argument name="Payload_Spare" argumentTypeRef="unsigned8_leastSignificantByteFirst" initialValue="0" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_EnableAppEventTypeCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000170500" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_AppName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_BitMask">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>224</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Spare">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>232</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_DisableAppEventTypeCmd" shortDescription="CFE_EVS_DisableAppEventTypeCmd_t; MID=0x1901; FC=6; sizeof=30">
+        <ArgumentList>
+          <Argument name="Payload_AppName" argumentTypeRef="string160_leastSignificantByteFirst" />
+          <Argument name="Payload_BitMask" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+          <Argument name="Payload_Spare" argumentTypeRef="unsigned8_leastSignificantByteFirst" initialValue="0" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_DisableAppEventTypeCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000170600" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_AppName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_BitMask">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>224</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Spare">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>232</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_EnableAppEventsCmd" shortDescription="CFE_EVS_EnableAppEventsCmd_t; MID=0x1901; FC=7; sizeof=28">
+        <ArgumentList>
+          <Argument name="Payload_AppName" argumentTypeRef="string160_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_EnableAppEventsCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000150700" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_AppName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_DisableAppEventsCmd" shortDescription="CFE_EVS_DisableAppEventsCmd_t; MID=0x1901; FC=8; sizeof=28">
+        <ArgumentList>
+          <Argument name="Payload_AppName" argumentTypeRef="string160_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_DisableAppEventsCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000150800" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_AppName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_ResetAppCounterCmd" shortDescription="CFE_EVS_ResetAppCounterCmd_t; MID=0x1901; FC=9; sizeof=28">
+        <ArgumentList>
+          <Argument name="Payload_AppName" argumentTypeRef="string160_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_ResetAppCounterCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000150900" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_AppName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_SetFilterCmd" shortDescription="CFE_EVS_SetFilterCmd_t; MID=0x1901; FC=10; sizeof=32">
+        <ArgumentList>
+          <Argument name="Payload_AppName" argumentTypeRef="string160_leastSignificantByteFirst" />
+          <Argument name="Payload_EventID" argumentTypeRef="unsigned16_leastSignificantByteFirst" />
+          <Argument name="Payload_Mask" argumentTypeRef="unsigned16_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_SetFilterCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000190A00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_AppName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_EventID">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>224</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Mask">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>240</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_EnablePortsCmd" shortDescription="CFE_EVS_EnablePortsCmd_t; MID=0x1901; FC=11; sizeof=10">
+        <ArgumentList>
+          <Argument name="Payload_BitMask" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+          <Argument name="Payload_Spare" argumentTypeRef="unsigned8_leastSignificantByteFirst" initialValue="0" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_EnablePortsCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000030B00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_BitMask">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Spare">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>72</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_DisablePortsCmd" shortDescription="CFE_EVS_DisablePortsCmd_t; MID=0x1901; FC=12; sizeof=10">
+        <ArgumentList>
+          <Argument name="Payload_BitMask" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+          <Argument name="Payload_Spare" argumentTypeRef="unsigned8_leastSignificantByteFirst" initialValue="0" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_DisablePortsCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000030C00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_BitMask">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Spare">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>72</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_ResetFilterCmd" shortDescription="CFE_EVS_ResetFilterCmd_t; MID=0x1901; FC=13; sizeof=30">
+        <ArgumentList>
+          <Argument name="Payload_AppName" argumentTypeRef="string160_leastSignificantByteFirst" />
+          <Argument name="Payload_EventID" argumentTypeRef="unsigned16_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_ResetFilterCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000170D00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_AppName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_EventID">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>224</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_ResetAllFiltersCmd" shortDescription="CFE_EVS_ResetAllFiltersCmd_t; MID=0x1901; FC=14; sizeof=28">
+        <ArgumentList>
+          <Argument name="Payload_AppName" argumentTypeRef="string160_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_ResetAllFiltersCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000150E00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_AppName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_AddEventFilterCmd" shortDescription="CFE_EVS_AddEventFilterCmd_t; MID=0x1901; FC=15; sizeof=32">
+        <ArgumentList>
+          <Argument name="Payload_AppName" argumentTypeRef="string160_leastSignificantByteFirst" />
+          <Argument name="Payload_EventID" argumentTypeRef="unsigned16_leastSignificantByteFirst" />
+          <Argument name="Payload_Mask" argumentTypeRef="unsigned16_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_AddEventFilterCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000190F00" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_AppName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_EventID">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>224</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Mask">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>240</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_DeleteEventFilterCmd" shortDescription="CFE_EVS_DeleteEventFilterCmd_t; MID=0x1901; FC=16; sizeof=30">
+        <ArgumentList>
+          <Argument name="Payload_AppName" argumentTypeRef="string160_leastSignificantByteFirst" />
+          <Argument name="Payload_EventID" argumentTypeRef="unsigned16_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_DeleteEventFilterCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000171000" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_AppName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_EventID">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>224</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_WriteAppDataFileCmd" shortDescription="CFE_EVS_WriteAppDataFileCmd_t; MID=0x1901; FC=17; sizeof=72">
+        <ArgumentList>
+          <Argument name="Payload_AppDataFilename" argumentTypeRef="string512_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_WriteAppDataFileCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000411100" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_AppDataFilename">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_SetLogModeCmd" shortDescription="CFE_EVS_SetLogModeCmd_t; MID=0x1901; FC=19; sizeof=10">
+        <ArgumentList>
+          <Argument name="Payload_LogMode" argumentTypeRef="unsigned8_leastSignificantByteFirst" />
+          <Argument name="Payload_Spare" argumentTypeRef="unsigned8_leastSignificantByteFirst" initialValue="0" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_SetLogModeCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000031300" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_LogMode">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_Spare">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>72</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_ClearLogCmd" shortDescription="CFE_EVS_ClearLogCmd_t; MID=0x1901; FC=20; sizeof=8">
+        <CommandContainer name="CFE_EVS_ClearLogCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000011400" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_WriteLogDataFileCmd" shortDescription="CFE_EVS_WriteLogDataFileCmd_t; MID=0x1901; FC=18; sizeof=72">
+        <ArgumentList>
+          <Argument name="Payload_LogFilename" argumentTypeRef="string512_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_EVS_WriteLogDataFileCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1901C00000411200" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_LogFilename">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_EVS_SendHkCmd" shortDescription="CFE_EVS_SendHkCmd_t; MID=0x1909; FC=0; sizeof=8">
+        <CommandContainer name="CFE_EVS_SendHkCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1909C00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+    </MetaCommandSet>
+  </CommandMetaData>
+</SpaceSystem>

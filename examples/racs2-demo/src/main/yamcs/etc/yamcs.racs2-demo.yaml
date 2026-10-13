@@ -1,0 +1,101 @@
+services:
+  - class: org.yamcs.archive.XtceTmRecorder
+  - class: org.yamcs.archive.ParameterRecorder
+  - class: org.yamcs.archive.EventRecorder
+  - class: org.yamcs.archive.CommandHistoryRecorder
+  - class: org.yamcs.archive.ReplayServer
+  - class: org.yamcs.ProcessorCreatorService
+    args:
+      name: realtime
+      type: realtime
+
+mdb:
+  - type: xtce
+    args:
+      file: mdb/cfs.xml
+    subLoaders:
+      - type: xtce
+        args:
+          file: mdb/cpu1.xml
+        subLoaders:
+          - type: xtce
+            args:
+              file: mdb/cpu1/cfe_es.xml
+          - type: xtce
+            args:
+              file: mdb/cpu1/cfe_evs.xml
+          - type: xtce
+            args:
+              file: mdb/cpu1/cfe_sb.xml
+          - type: xtce
+            args:
+              file: mdb/cpu1/cfe_tbl.xml
+          - type: xtce
+            args:
+              file: mdb/cpu1/cfe_time.xml
+          - type: xtce
+            args:
+              file: mdb/cpu1/to_lab.xml
+          - type: xtce
+            args:
+              file: mdb/cpu1/ci_lab.xml
+      - type: xtce
+        args:
+          file: mdb/cpu2.xml
+        subLoaders:
+          - type: xtce
+            args:
+              file: mdb/cpu2/cfe_es.xml
+          - type: xtce
+            args:
+              file: mdb/cpu2/cfe_evs.xml
+          - type: xtce
+            args:
+              file: mdb/cpu2/cfe_sb.xml
+          - type: xtce
+            args:
+              file: mdb/cpu2/cfe_tbl.xml
+          - type: xtce
+            args:
+              file: mdb/cpu2/cfe_time.xml
+          - type: xtce
+            args:
+              file: mdb/cpu2/to_lab.xml
+          - type: xtce
+            args:
+              file: mdb/cpu2/ci_lab.xml
+
+dataLinks:
+  - name: to_lab_tm
+    class: org.yamcs.tctm.UdpTmDataLink
+    stream: tm_realtime
+    port: 2234
+    maxLength: 65535
+    packetPreprocessorClassName: org.yamcs.tctm.cfs.CfsPacketPreprocessor
+    packetPreprocessorArgs:
+      byteOrder: BIG_ENDIAN
+      # cFE clock initialization and epoch depend on the mission. Until an
+      # epoch is configured, timestamp archive data with local reception time.
+      useLocalGenerationTime: true
+  - name: ci_lab_tc
+    class: org.yamcs.tctm.UdpTcDataLink
+    stream: tc_realtime
+    host: 127.0.0.1
+    port: 1234
+    commandPostprocessorClassName: org.yamcs.tctm.cfs.CfsCommandPostprocessor
+    commandPostprocessorArgs:
+      swapChecksumFc: false
+
+streamConfig:
+  tm:
+    - name: tm_realtime
+      processor: realtime
+      rootContainer: /cFS/CCSDS_Telemetry
+  tc:
+    - name: tc_realtime
+      processor: realtime
+      # CPU1 ingests commands and SBN forwards CPU2 MIDs to CPU2.
+      tcPatterns: ["/cFS/CPU1/.*", "/cFS/CPU2/.*"]
+  cmdHist: [cmdhist_realtime]
+  event: [events_realtime]
+  param: [pp_realtime]

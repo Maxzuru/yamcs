@@ -1,0 +1,231 @@
+# racs2-demo — Upstream cFS XTCE MDB
+
+This XTCE 1.2 mission database defines cFE ES/EVS/SB/TBL/TIME and TO_LAB/CI_LAB
+separately for CPU1 and CPU2. Yamcs organizes them under paths such as
+`/cFS/CPU1/CFE_ES` and `/cFS/CPU2/CFE_ES`.
+
+## File layout
+
+`src/main/yamcs/mdb/` contains the common root, CPU namespaces, and application XML files.
+
+```text
+mdb/
+  cfs.xml                  # Common CCSDS header and cFS root
+  cfs.manifest.json        # Source revisions and index of CPU manifests
+  cpu1.xml                 # CPU1 SpaceSystem
+  cpu2.xml                 # CPU2 SpaceSystem
+  cpu1/
+    cfe_es.xml
+    cfe_evs.xml
+    cfe_sb.xml
+    cfe_tbl.xml
+    cfe_time.xml
+    to_lab.xml
+    ci_lab.xml
+    cfs.manifest.json       # CPU1 MIDs, function codes, structures, and offsets
+  cpu2/
+    cfe_es.xml
+    cfe_evs.xml
+    cfe_sb.xml
+    cfe_tbl.xml
+    cfe_time.xml
+    to_lab.xml
+    ci_lab.xml
+    cfs.manifest.json       # CPU2 MIDs, function codes, structures, and offsets
+```
+
+Application telemetry containers inherit from `/cFS/CCSDS_Telemetry` and are
+identified by `/cFS/MessageId`. Load the common header and select the CPUs and
+applications you need through `subLoaders`.
+
+## Supported configuration and coverage
+
+The database was generated from the upstream cFS builds
+`native_std/default_cpu1` and `native_std/default_cpu2` on Linux.
+Both CPU builds use little endian byte order in this configuration.
+
+| Source | Commit |
+|---|---|
+| cFS | `83c403ed8ec273c6de4fe8ca08ade8d7753d80ac` |
+| cFE | `5dd74afa85e5ed5e8c1ed4129281d21611f8d699` |
+| to_lab | `d27c6014cb5d2979140500f635876ee87b81995b` |
+| ci_lab | `edb8ddf53076128a125b373b3b870f75e1d82d04` |
+
+The following telemetry (TM) and telecommands (TC) are defined for **each CPU**.
+
+| Service | TM | TC, including HK requests and internal messages |
+|---|---:|---:|
+| ES | 3 | 25 |
+| EVS | 3 | 22 |
+| SB | 4 | 12 |
+| TBL | 2 | 11 |
+| TIME | 2 | 21 |
+| TO_LAB | 2 | 8 |
+| CI_LAB | 1 | 4 |
+| Total per CPU | **17** | **103** |
+| Total for both CPUs | **34** | **206** |
+
+The MDB defines 1349 parameters and 35 containers, including the common header.
+Telemetry includes housekeeping, ES application information and memory statistics,
+EVS long and short events, SB statistics and subscriptions, the TBL registry,
+TIME diagnostics, and TO data type tests.
+Telecommands include ground commands, housekeeping requests, SB subscription
+report controls, CI ReadUplink, and TIME OneHz/ToneSignal/FakeTone/ToneData.
+
+CPU2 MIDs are obtained from CPU2's build configuration. For example:
+
+| Message | CPU1 | CPU2 |
+|---|---|---|
+| ES HK | `0x0800` | `0x0900` |
+| ES ground command | `0x1806` | `0x1906` |
+
+TIME global commands use MIDs shared by both CPUs. Selecting a CPU namespace
+for these commands does not change their global MID.
+`CFE_TBL_NotifyCmd_t` is a notification template whose destination application
+specifies the MID and function code. It is therefore excluded from the fixed-MID
+TBL ground commands. File record definitions are also outside the scope of this MDB.
+
+## Wire format and naming
+
+- The CCSDS primary header and telemetry timestamps use big endian byte order.
+  Telemetry headers are 16 bytes; command headers are 8 bytes.
+- Telemetry stores 32-bit seconds at byte 6, 16-bit subseconds at byte 10,
+  and spare bytes at offsets 12–15.
+- Commands store the function code at byte 6 and the checksum at byte 7.
+- Payloads use the byte order of each CPU's native build. Structure sizes and
+  field offsets are obtained through GCC/GDB, including internal and trailing padding.
+- `char[N]` is represented as a NULL-terminated string in a fixed N-byte buffer.
+- Arrays and structures are expanded into individual fields. Descriptions retain
+  their original C field paths.
+- Enums, bitmasks, ID wrappers, and booleans are represented numerically.
+  Calibrations, alarms, enumeration labels, and command result verifiers are not defined.
+- In SB AllSubscriptions telemetry, `Payload.Entries` specifies the number of
+  valid entries. The remaining array elements are unused.
+
+Example paths:
+
+```text
+/cFS/CPU1/CFE_ES/CFE_ES_NoopCmd
+/cFS/CPU2/CFE_ES/CFE_ES_NoopCmd
+/cFS/CPU1/TO_LAB/TO_LAB_EnableOutputCmd
+/cFS/CPU2/TO_LAB/TO_LAB_EnableOutputCmd
+/cFS/CPU1/TO_LAB/TO_LAB_HkTlm_Payload_CommandCounter
+```
+
+The CPU namespace adds a level to the previous `/cFS/CFE_ES/...` layout.
+Update command and parameter references in displays and scripts accordingly.
+
+## Loading the MDB into Yamcs
+
+Copy all XML files into Yamcs's `mdb/` directory, preserving the layout above.
+`src/main/yamcs/etc/yamcs.racs2-demo.yaml` contains the configuration for both
+CPUs and all applications. A minimal configuration loading only ES for both CPUs is:
+
+```yaml
+mdb:
+  - type: xtce
+    args:
+      file: mdb/cfs.xml
+    subLoaders:
+      - type: xtce
+        args:
+          file: mdb/cpu1.xml
+        subLoaders:
+          - type: xtce
+            args:
+              file: mdb/cpu1/cfe_es.xml
+      - type: xtce
+        args:
+          file: mdb/cpu2.xml
+        subLoaders:
+          - type: xtce
+            args:
+              file: mdb/cpu2/cfe_es.xml
+
+streamConfig:
+  tm:
+    - name: tm_realtime
+      processor: realtime
+      rootContainer: /cFS/CCSDS_Telemetry
+```
+
+The same telemetry stream can distinguish both CPUs by MID.
+Commands for both CPUs are sent to CPU1's CI link at `127.0.0.1:1234`.
+CPU1 forwards commands carrying CPU2 MIDs through SBN to CPU2.
+The command stream specifies `tcPatterns: ["/cFS/CPU1/.*", "/cFS/CPU2/.*"]`.
+CPU2 telemetry also reaches CPU1 through SBN and is sent to Yamcs by CPU1's TO.
+
+`CfsCommandPostprocessor` updates the packet length, sequence count, and checksum
+immediately before transmission. Configure SBN subscriptions and forwarding,
+and TO's output subscriptions, on the cFS side.
+
+## Building and starting Yamcs
+
+For the initial build, run these commands from the repository root:
+
+```sh
+mvn -B --no-transfer-progress -pl examples/racs2-demo -am install -DskipTests
+cd yamcs-web/src/main/webapp
+npm ci --no-audit --no-fund
+npm run build
+cd ../../../..
+./run-example.sh racs2-demo
+```
+
+After building, start Yamcs with `./run-example.sh racs2-demo`.
+Open `http://localhost:8090` and select `racs2-demo/realtime`.
+To stop Yamcs started in your terminal, press Ctrl+C in that terminal.
+Start cFS separately; this example does not launch cFS processes automatically.
+
+Yamcs receives telemetry from CPU1's TO on UDP port 2234 and sends commands for
+both CPUs to CPU1 at `127.0.0.1:1234`. Data is stored in `data/` under the runtime directory.
+To enable CPU1's TO output, issue `/cFS/CPU1/TO_LAB/TO_LAB_EnableOutputCmd`
+with `Payload_dest_IP=127.0.0.1`.
+Add any missing telemetry subscriptions through AddPacket or TO's table configuration.
+
+The cFE epoch depends on the mission, so this example sets
+`useLocalGenerationTime: true`. Seconds and subseconds remain available as parameters.
+Once the epoch is known, configure `timeEncoding` for `CfsPacketPreprocessor`
+and set this flag to false.
+
+## Regeneration and verification
+
+Using the generated XML requires neither cFS sources nor GCC/GDB.
+Regeneration requires Python 3.9 or later, GCC, GDB with Python support,
+and a cFS build containing both CPUs. The generator leaves existing cFS sources
+and build artifacts untouched.
+
+```sh
+python3 examples/racs2-demo/tools/generate_xtce.py \
+  --cfs-root /path/to/cFS \
+  --fixtures-output /tmp/cfs-fixtures.json
+python3 examples/racs2-demo/tools/validate_schema.py
+```
+
+Use `--build-dir` to select the cFS build directory and
+`--output /path/to/mdb/cfs.xml` to select the output location.
+The generator writes the common XML, CPU wrapper XML files, and application XML
+files and manifests for each CPU together.
+It supports `native/default_cpu1` and `native/default_cpu2`.
+EDS, other header formats, cross builds, and other ABIs require generator changes.
+
+Schema validation requires Python's `lxml` package.
+Verification fixtures are generated by assigning nonzero values to actual
+upstream C structures. Fixture generation does not start cFE.
+
+```sh
+# YAMCS_CP: Java classpath containing yamcs-core and its dependency JARs
+mkdir -p /tmp/cfs-mdb-validation
+javac -cp "$YAMCS_CP" -d /tmp/cfs-mdb-validation examples/racs2-demo/tools/VerifyCfsMdb.java
+java -cp "/tmp/cfs-mdb-validation:$YAMCS_CP" VerifyCfsMdb \
+  examples/racs2-demo/src/main/yamcs/mdb/cfs.xml /tmp/cfs-fixtures.json
+```
+
+All XML files have passed XTCE 1.2 schema validation.
+With Yamcs 5.13.7-SNAPSHOT, all 206 command packets matched their C structures
+byte for byte, and all 34 telemetry packets decoded into the correct CPU paths.
+Yamcs 5.13.7-SNAPSHOT and its web interface were built and started on 2026-10-13.
+After adding CPU namespaces, Yamcs was restarted and its API confirmed seven
+applications per CPU, 206 commands, 35 containers, and a running
+`racs2-demo/realtime` processor.
+UDP communication with actual cFS processes has not been verified in this work.

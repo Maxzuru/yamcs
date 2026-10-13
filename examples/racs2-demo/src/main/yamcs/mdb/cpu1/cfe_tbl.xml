@@ -1,0 +1,557 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SpaceSystem xmlns="http://www.omg.org/spec/XTCE/20180204" name="CFE_TBL" shortDescription="Upstream cFS native_std CPU1: CFE_TBL">
+  <Header version="1.0" validationStatus="Draft" />
+  <TelemetryMetaData>
+    <ParameterTypeSet>
+      <IntegerParameterType name="unsigned8_leastSignificantByteFirst" signed="false" sizeInBits="8">
+        <IntegerDataEncoding sizeInBits="8" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <IntegerParameterType name="unsigned16_leastSignificantByteFirst" signed="false" sizeInBits="16">
+        <IntegerDataEncoding sizeInBits="16" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <IntegerParameterType name="unsigned32_leastSignificantByteFirst" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <IntegerParameterType name="signed32_leastSignificantByteFirst" signed="true" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" byteOrder="leastSignificantByteFirst" encoding="twosComplement" />
+      </IntegerParameterType>
+      <StringParameterType name="string320_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>320</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringParameterType>
+      <StringParameterType name="string512_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>512</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringParameterType>
+      <IntegerParameterType name="unsigned64_leastSignificantByteFirst" signed="false" sizeInBits="64">
+        <IntegerDataEncoding sizeInBits="64" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerParameterType>
+      <StringParameterType name="string160_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>160</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringParameterType>
+    </ParameterTypeSet>
+    <ParameterSet>
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_CommandCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CommandCounter (uint8)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_CommandErrorCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.CommandErrorCounter (uint8)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_NumTables" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.NumTables (uint16)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_NumLoadPending" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.NumLoadPending (uint16)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_ValidationCounter" parameterTypeRef="unsigned16_leastSignificantByteFirst" shortDescription="Payload.ValidationCounter (uint16)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_LastValCrc" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.LastValCrc (uint32)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_LastValStatus" parameterTypeRef="signed32_leastSignificantByteFirst" shortDescription="Payload.LastValStatus (int32)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_ActiveBuffer" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.ActiveBuffer (_Bool)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_LastValTableName" parameterTypeRef="string320_leastSignificantByteFirst" shortDescription="Payload.LastValTableName (char [40])" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_SuccessValCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.SuccessValCounter (uint8)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_FailedValCounter" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.FailedValCounter (uint8)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_NumValRequests" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.NumValRequests (uint8)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_NumFreeSharedBufs" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.NumFreeSharedBufs (uint8)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_ByteAlignPad1" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.ByteAlignPad1 (uint8)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_MemPoolHandle" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.MemPoolHandle (CFE_ES_MemHandle_t)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_LastUpdateTime_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.LastUpdateTime.Seconds (uint32)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_LastUpdateTime_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.LastUpdateTime.Subseconds (uint32)" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_LastUpdatedTable" parameterTypeRef="string320_leastSignificantByteFirst" shortDescription="Payload.LastUpdatedTable (char [40])" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_LastFileLoaded" parameterTypeRef="string512_leastSignificantByteFirst" shortDescription="Payload.LastFileLoaded (char [64])" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_LastFileDumped" parameterTypeRef="string512_leastSignificantByteFirst" shortDescription="Payload.LastFileDumped (char [64])" />
+      <Parameter name="CFE_TBL_HousekeepingTlm_Payload_LastTableLoaded" parameterTypeRef="string320_leastSignificantByteFirst" shortDescription="Payload.LastTableLoaded (char [40])" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_Size" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.Size (CFE_ES_MemOffset_t)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_Crc" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.Crc (uint32)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_Padding1_0" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding1[0] (uint8)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_Padding1_1" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding1[1] (uint8)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_Padding1_2" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding1[2] (uint8)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_Padding1_3" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding1[3] (uint8)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_ActiveBufferAddr" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.ActiveBufferAddr (CFE_ES_MemAddress_t)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_InactiveBufferAddr" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.InactiveBufferAddr (CFE_ES_MemAddress_t)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_ValidationFuncPtr" parameterTypeRef="unsigned64_leastSignificantByteFirst" shortDescription="Payload.ValidationFuncPtr (CFE_ES_MemAddress_t)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_TimeOfLastUpdate_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.TimeOfLastUpdate.Seconds (uint32)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_TimeOfLastUpdate_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.TimeOfLastUpdate.Subseconds (uint32)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_FileTime_Seconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.FileTime.Seconds (uint32)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_FileTime_Subseconds" parameterTypeRef="unsigned32_leastSignificantByteFirst" shortDescription="Payload.FileTime.Subseconds (uint32)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_TableLoadedOnce" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.TableLoadedOnce (_Bool)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_LoadPending" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.LoadPending (_Bool)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_DumpOnly" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.DumpOnly (_Bool)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_DoubleBuffered" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.DoubleBuffered (_Bool)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_Name" parameterTypeRef="string320_leastSignificantByteFirst" shortDescription="Payload.Name (char [40])" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_LastFileLoaded" parameterTypeRef="string512_leastSignificantByteFirst" shortDescription="Payload.LastFileLoaded (char [64])" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_OwnerAppName" parameterTypeRef="string160_leastSignificantByteFirst" shortDescription="Payload.OwnerAppName (char [20])" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_Critical" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Critical (_Bool)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_Padding2_0" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding2[0] (uint8)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_Padding2_1" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding2[1] (uint8)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_Padding2_2" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding2[2] (uint8)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_Padding2_3" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding2[3] (uint8)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_Padding2_4" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding2[4] (uint8)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_Padding2_5" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding2[5] (uint8)" />
+      <Parameter name="CFE_TBL_TableRegistryTlm_Payload_Padding2_6" parameterTypeRef="unsigned8_leastSignificantByteFirst" shortDescription="Payload.Padding2[6] (uint8)" />
+    </ParameterSet>
+    <ContainerSet>
+      <SequenceContainer name="CFE_TBL_HousekeepingTlm" shortDescription="CFE_TBL_HousekeepingTlm_t; MID=0x0804; sizeof=300">
+        <EntryList>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_CommandCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>128</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_CommandErrorCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>136</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_NumTables">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>144</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_NumLoadPending">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>160</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_ValidationCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>176</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_LastValCrc">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>192</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_LastValStatus">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>224</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_ActiveBuffer">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>256</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_LastValTableName">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>264</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_SuccessValCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>584</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_FailedValCounter">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>592</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_NumValRequests">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>600</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_NumFreeSharedBufs">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>608</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_ByteAlignPad1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>616</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_MemPoolHandle">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>640</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_LastUpdateTime_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>672</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_LastUpdateTime_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>704</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_LastUpdatedTable">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>736</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_LastFileLoaded">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1056</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_LastFileDumped">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1568</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_HousekeepingTlm_Payload_LastTableLoaded">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>2080</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
+          <RestrictionCriteria>
+            <Comparison parameterRef="/cFS/MessageId" value="2052" />
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+      <SequenceContainer name="CFE_TBL_TableRegistryTlm" shortDescription="CFE_TBL_TableRegistryTlm_t; MID=0x080C; sizeof=208">
+        <EntryList>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_Size">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>128</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_Crc">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>192</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_Padding1_0">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>224</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_Padding1_1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>232</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_Padding1_2">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>240</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_Padding1_3">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>248</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_ActiveBufferAddr">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>256</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_InactiveBufferAddr">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>320</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_ValidationFuncPtr">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>384</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_TimeOfLastUpdate_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>448</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_TimeOfLastUpdate_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>480</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_FileTime_Seconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>512</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_FileTime_Subseconds">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>544</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_TableLoadedOnce">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>576</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_LoadPending">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>584</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_DumpOnly">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>592</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_DoubleBuffered">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>600</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_Name">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>608</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_LastFileLoaded">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>928</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_OwnerAppName">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1440</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_Critical">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1600</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_Padding2_0">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1608</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_Padding2_1">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1616</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_Padding2_2">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1624</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_Padding2_3">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1632</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_Padding2_4">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1640</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_Padding2_5">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1648</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="CFE_TBL_TableRegistryTlm_Payload_Padding2_6">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>1656</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+        </EntryList>
+        <BaseContainer containerRef="/cFS/CCSDS_Telemetry">
+          <RestrictionCriteria>
+            <Comparison parameterRef="/cFS/MessageId" value="2060" />
+          </RestrictionCriteria>
+        </BaseContainer>
+      </SequenceContainer>
+    </ContainerSet>
+  </TelemetryMetaData>
+  <CommandMetaData>
+    <ArgumentTypeSet>
+      <StringArgumentType name="string512_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>512</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringArgumentType>
+      <IntegerArgumentType name="unsigned16_leastSignificantByteFirst" signed="false" sizeInBits="16">
+        <IntegerDataEncoding sizeInBits="16" byteOrder="leastSignificantByteFirst" encoding="unsigned" />
+      </IntegerArgumentType>
+      <StringArgumentType name="string320_leastSignificantByteFirst">
+        <StringDataEncoding encoding="UTF-8">
+          <SizeInBits>
+            <Fixed>
+              <FixedValue>320</FixedValue>
+            </Fixed>
+            <TerminationChar>00</TerminationChar>
+          </SizeInBits>
+        </StringDataEncoding>
+      </StringArgumentType>
+    </ArgumentTypeSet>
+    <MetaCommandSet>
+      <MetaCommand name="CFE_TBL_NoopCmd" shortDescription="CFE_TBL_NoopCmd_t; MID=0x1804; FC=0; sizeof=8">
+        <CommandContainer name="CFE_TBL_NoopCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1804C00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TBL_ResetCountersCmd" shortDescription="CFE_TBL_ResetCountersCmd_t; MID=0x1804; FC=1; sizeof=8">
+        <CommandContainer name="CFE_TBL_ResetCountersCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1804C00000010100" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TBL_LoadCmd" shortDescription="CFE_TBL_LoadCmd_t; MID=0x1804; FC=2; sizeof=72">
+        <ArgumentList>
+          <Argument name="Payload_LoadFilename" argumentTypeRef="string512_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TBL_LoadCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1804C00000410200" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_LoadFilename">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TBL_DumpCmd" shortDescription="CFE_TBL_DumpCmd_t; MID=0x1804; FC=3; sizeof=114">
+        <ArgumentList>
+          <Argument name="Payload_ActiveTableFlag" argumentTypeRef="unsigned16_leastSignificantByteFirst" />
+          <Argument name="Payload_TableName" argumentTypeRef="string320_leastSignificantByteFirst" />
+          <Argument name="Payload_DumpFilename" argumentTypeRef="string512_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TBL_DumpCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1804C000006B0300" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_ActiveTableFlag">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_TableName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>80</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_DumpFilename">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>400</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TBL_ValidateCmd" shortDescription="CFE_TBL_ValidateCmd_t; MID=0x1804; FC=4; sizeof=50">
+        <ArgumentList>
+          <Argument name="Payload_ActiveTableFlag" argumentTypeRef="unsigned16_leastSignificantByteFirst" />
+          <Argument name="Payload_TableName" argumentTypeRef="string320_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TBL_ValidateCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1804C000002B0400" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_ActiveTableFlag">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+            <ArgumentRefEntry argumentRef="Payload_TableName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>80</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TBL_ActivateCmd" shortDescription="CFE_TBL_ActivateCmd_t; MID=0x1804; FC=5; sizeof=48">
+        <ArgumentList>
+          <Argument name="Payload_TableName" argumentTypeRef="string320_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TBL_ActivateCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1804C00000290500" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_TableName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TBL_DumpRegistryCmd" shortDescription="CFE_TBL_DumpRegistryCmd_t; MID=0x1804; FC=6; sizeof=72">
+        <ArgumentList>
+          <Argument name="Payload_DumpFilename" argumentTypeRef="string512_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TBL_DumpRegistryCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1804C00000410600" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_DumpFilename">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TBL_SendRegistryCmd" shortDescription="CFE_TBL_SendRegistryCmd_t; MID=0x1804; FC=7; sizeof=48">
+        <ArgumentList>
+          <Argument name="Payload_TableName" argumentTypeRef="string320_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TBL_SendRegistryCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1804C00000290700" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_TableName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TBL_DeleteCDSCmd" shortDescription="CFE_TBL_DeleteCDSCmd_t; MID=0x1804; FC=8; sizeof=48">
+        <ArgumentList>
+          <Argument name="Payload_TableName" argumentTypeRef="string320_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TBL_DeleteCDSCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1804C00000290800" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_TableName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TBL_AbortLoadCmd" shortDescription="CFE_TBL_AbortLoadCmd_t; MID=0x1804; FC=9; sizeof=48">
+        <ArgumentList>
+          <Argument name="Payload_TableName" argumentTypeRef="string320_leastSignificantByteFirst" />
+        </ArgumentList>
+        <CommandContainer name="CFE_TBL_AbortLoadCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="1804C00000290900" sizeInBits="64" />
+            <ArgumentRefEntry argumentRef="Payload_TableName">
+              <LocationInContainerInBits referenceLocation="containerStart">
+                <FixedValue>64</FixedValue>
+              </LocationInContainerInBits>
+            </ArgumentRefEntry>
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+      <MetaCommand name="CFE_TBL_SendHkCmd" shortDescription="CFE_TBL_SendHkCmd_t; MID=0x180C; FC=0; sizeof=8">
+        <CommandContainer name="CFE_TBL_SendHkCmd">
+          <EntryList>
+            <FixedValueEntry name="Header" binaryValue="180CC00000010000" sizeInBits="64" />
+          </EntryList>
+        </CommandContainer>
+      </MetaCommand>
+    </MetaCommandSet>
+  </CommandMetaData>
+</SpaceSystem>
