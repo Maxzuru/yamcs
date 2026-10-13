@@ -134,14 +134,34 @@ def generate(manifest, output, module=None):
         return name
 
     if not module:
-        base = element(containers, 'SequenceContainer', name='CCSDS_Telemetry')
-        entries = element(base, 'EntryList')
-        for name, offset, size in [('MessageId', 0, 2), ('Sequence', 2, 2), ('PacketLength', 4, 2),
-                                   ('Seconds', 6, 4), ('Subseconds', 10, 2)]:
-            type_ref = datatype(dict(kind='unsigned', size=size), 'Parameter', 'mostSignificantByteFirst')
-            element(params, 'Parameter', name=name, parameterTypeRef=type_ref)
-            entry = element(entries, 'ParameterRefEntry', parameterRef=name)
-            locate(entry, offset)
+        for bits in (1, 2, 3, 11, 14, 16, 32):
+            node = element(types, 'IntegerParameterType', name='header_uint%d' % bits,
+                           signed='false', sizeInBits=bits)
+            element(node, 'IntegerDataEncoding', sizeInBits=bits, encoding='unsigned',
+                    byteOrder='mostSignificantByteFirst')
+
+        def tm_header(container, fields):
+            entries = element(container, 'EntryList')
+            for name, bits, bit_offset in fields:
+                element(params, 'Parameter', name=name, parameterTypeRef='header_uint%d' % bits)
+                entry = element(entries, 'ParameterRefEntry', parameterRef=name)
+                location = element(entry, 'LocationInContainerInBits', referenceLocation='containerStart')
+                element(location, 'FixedValue').text = str(bit_offset)
+
+        primary = element(containers, 'SequenceContainer', name='CCSDS_PrimaryHeader',
+                          shortDescription='Six-byte CCSDS primary header; MID and Sequence retain the full words')
+        tm_header(primary, [('MessageId', 16, 0), ('Version', 3, 0), ('PacketType', 1, 3),
+                            ('SecondaryHeaderFlag', 1, 4), ('APID', 11, 5),
+                            ('Sequence', 16, 16), ('SequenceFlags', 2, 16),
+                            ('SequenceCount', 14, 18), ('PacketLength', 16, 32)])
+        base = element(containers, 'SequenceContainer', name='CCSDS_Telemetry',
+                       shortDescription='cFS telemetry time header and four spare bytes')
+        tm_header(base, [('Seconds', 32, 48), ('Subseconds', 16, 80), ('Spare', 32, 96)])
+        inheritance = element(base, 'BaseContainer', containerRef='CCSDS_PrimaryHeader')
+        criteria = element(inheritance, 'RestrictionCriteria')
+        comparisons = element(criteria, 'ComparisonList')
+        element(comparisons, 'Comparison', parameterRef='PacketType', value='0')
+        element(comparisons, 'Comparison', parameterRef='SecondaryHeaderFlag', value='1')
 
         # Reusable CCSDS/cFS command header. MID includes the version, packet
         # type, secondary-header flag and APID, as defined by cFE's 16-bit MID.

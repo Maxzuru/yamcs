@@ -3,26 +3,68 @@
   <Header version="1.0" validationStatus="Draft" />
   <TelemetryMetaData>
     <ParameterTypeSet>
-      <IntegerParameterType name="unsigned16_mostSignificantByteFirst" signed="false" sizeInBits="16">
-        <IntegerDataEncoding sizeInBits="16" byteOrder="mostSignificantByteFirst" encoding="unsigned" />
+      <IntegerParameterType name="header_uint1" signed="false" sizeInBits="1">
+        <IntegerDataEncoding sizeInBits="1" encoding="unsigned" byteOrder="mostSignificantByteFirst" />
       </IntegerParameterType>
-      <IntegerParameterType name="unsigned32_mostSignificantByteFirst" signed="false" sizeInBits="32">
-        <IntegerDataEncoding sizeInBits="32" byteOrder="mostSignificantByteFirst" encoding="unsigned" />
+      <IntegerParameterType name="header_uint2" signed="false" sizeInBits="2">
+        <IntegerDataEncoding sizeInBits="2" encoding="unsigned" byteOrder="mostSignificantByteFirst" />
+      </IntegerParameterType>
+      <IntegerParameterType name="header_uint3" signed="false" sizeInBits="3">
+        <IntegerDataEncoding sizeInBits="3" encoding="unsigned" byteOrder="mostSignificantByteFirst" />
+      </IntegerParameterType>
+      <IntegerParameterType name="header_uint11" signed="false" sizeInBits="11">
+        <IntegerDataEncoding sizeInBits="11" encoding="unsigned" byteOrder="mostSignificantByteFirst" />
+      </IntegerParameterType>
+      <IntegerParameterType name="header_uint14" signed="false" sizeInBits="14">
+        <IntegerDataEncoding sizeInBits="14" encoding="unsigned" byteOrder="mostSignificantByteFirst" />
+      </IntegerParameterType>
+      <IntegerParameterType name="header_uint16" signed="false" sizeInBits="16">
+        <IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="mostSignificantByteFirst" />
+      </IntegerParameterType>
+      <IntegerParameterType name="header_uint32" signed="false" sizeInBits="32">
+        <IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="mostSignificantByteFirst" />
       </IntegerParameterType>
     </ParameterTypeSet>
     <ParameterSet>
-      <Parameter name="MessageId" parameterTypeRef="unsigned16_mostSignificantByteFirst" />
-      <Parameter name="Sequence" parameterTypeRef="unsigned16_mostSignificantByteFirst" />
-      <Parameter name="PacketLength" parameterTypeRef="unsigned16_mostSignificantByteFirst" />
-      <Parameter name="Seconds" parameterTypeRef="unsigned32_mostSignificantByteFirst" />
-      <Parameter name="Subseconds" parameterTypeRef="unsigned16_mostSignificantByteFirst" />
+      <Parameter name="MessageId" parameterTypeRef="header_uint16" />
+      <Parameter name="Version" parameterTypeRef="header_uint3" />
+      <Parameter name="PacketType" parameterTypeRef="header_uint1" />
+      <Parameter name="SecondaryHeaderFlag" parameterTypeRef="header_uint1" />
+      <Parameter name="APID" parameterTypeRef="header_uint11" />
+      <Parameter name="Sequence" parameterTypeRef="header_uint16" />
+      <Parameter name="SequenceFlags" parameterTypeRef="header_uint2" />
+      <Parameter name="SequenceCount" parameterTypeRef="header_uint14" />
+      <Parameter name="PacketLength" parameterTypeRef="header_uint16" />
+      <Parameter name="Seconds" parameterTypeRef="header_uint32" />
+      <Parameter name="Subseconds" parameterTypeRef="header_uint16" />
+      <Parameter name="Spare" parameterTypeRef="header_uint32" />
     </ParameterSet>
     <ContainerSet>
-      <SequenceContainer name="CCSDS_Telemetry">
+      <SequenceContainer name="CCSDS_PrimaryHeader" shortDescription="Six-byte CCSDS primary header; MID and Sequence retain the full words">
         <EntryList>
           <ParameterRefEntry parameterRef="MessageId">
             <LocationInContainerInBits referenceLocation="containerStart">
               <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="Version">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>0</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="PacketType">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>3</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="SecondaryHeaderFlag">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>4</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="APID">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>5</FixedValue>
             </LocationInContainerInBits>
           </ParameterRefEntry>
           <ParameterRefEntry parameterRef="Sequence">
@@ -30,11 +72,25 @@
               <FixedValue>16</FixedValue>
             </LocationInContainerInBits>
           </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="SequenceFlags">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>16</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="SequenceCount">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>18</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
           <ParameterRefEntry parameterRef="PacketLength">
             <LocationInContainerInBits referenceLocation="containerStart">
               <FixedValue>32</FixedValue>
             </LocationInContainerInBits>
           </ParameterRefEntry>
+        </EntryList>
+      </SequenceContainer>
+      <SequenceContainer name="CCSDS_Telemetry" shortDescription="cFS telemetry time header and four spare bytes">
+        <EntryList>
           <ParameterRefEntry parameterRef="Seconds">
             <LocationInContainerInBits referenceLocation="containerStart">
               <FixedValue>48</FixedValue>
@@ -45,7 +101,20 @@
               <FixedValue>80</FixedValue>
             </LocationInContainerInBits>
           </ParameterRefEntry>
+          <ParameterRefEntry parameterRef="Spare">
+            <LocationInContainerInBits referenceLocation="containerStart">
+              <FixedValue>96</FixedValue>
+            </LocationInContainerInBits>
+          </ParameterRefEntry>
         </EntryList>
+        <BaseContainer containerRef="CCSDS_PrimaryHeader">
+          <RestrictionCriteria>
+            <ComparisonList>
+              <Comparison parameterRef="PacketType" value="0" />
+              <Comparison parameterRef="SecondaryHeaderFlag" value="1" />
+            </ComparisonList>
+          </RestrictionCriteria>
+        </BaseContainer>
       </SequenceContainer>
     </ContainerSet>
   </TelemetryMetaData>

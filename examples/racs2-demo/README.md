@@ -10,7 +10,7 @@ separately for CPU1 and CPU2. Yamcs organizes them under paths such as
 
 ```text
 mdb/
-  cfs.xml                  # Common CCSDS header and cFS root
+  cfs.xml                  # Common CCSDS primary, telemetry and command headers; cFS root
   cfs.manifest.json        # Source revisions and index of CPU manifests
   cpu1.xml                 # CPU1 SpaceSystem
   cpu2.xml                 # CPU2 SpaceSystem
@@ -65,7 +65,7 @@ The following telemetry (TM) and telecommands (TC) are defined for **each CPU**.
 | Total per CPU | **17** | **103** |
 | Total for both CPUs | **34** | **206** |
 
-The MDB defines 1349 parameters and 35 telemetry containers, including the common header.
+The MDB defines 1356 parameters and 36 telemetry containers, including the common headers.
 It also includes one abstract command, `/cFS/CCSDS_Command`, shared by the 206 concrete commands.
 Telemetry includes housekeeping, ES application information and memory statistics,
 EVS long and short events, SB statistics and subscriptions, the TBL registry,
@@ -87,6 +87,37 @@ specifies the MID and function code. It is therefore excluded from the fixed-MID
 TBL ground commands. File record definitions are also outside the scope of this MDB.
 
 ## Wire format and naming
+
+Telemetry headers are defined as XML fields in two reusable containers:
+
+```text
+/cFS/CCSDS_PrimaryHeader
+  MessageId (16 bits; complete MID word)
+  Version (3 bits), PacketType (1 bit), SecondaryHeaderFlag (1 bit), APID (11 bits)
+  Sequence (16 bits; complete sequence word), SequenceFlags (2 bits), SequenceCount (14 bits)
+  PacketLength (16 bits)
+    └─ /cFS/CCSDS_Telemetry
+         Seconds (32 bits), Subseconds (16 bits), Spare (32 bits)
+           └─ /cFS/CPU1/CFE_ES/CFE_ES_HousekeepingTlm, etc.
+```
+
+`MessageId` and `Sequence` expose the complete words as well as their individual
+bit fields. The telemetry header inherits the primary header and requires
+`PacketType=0` and `SecondaryHeaderFlag=1`.
+Each application's telemetry container inherits the common telemetry header and
+selects its MID with a hexadecimal comparison. For example, CPU1 ES HK specifies:
+
+```xml
+<BaseContainer containerRef="/cFS/CCSDS_Telemetry">
+  <RestrictionCriteria>
+    <Comparison parameterRef="/cFS/MessageId" value="0x0800" />
+  </RestrictionCriteria>
+</BaseContainer>
+```
+
+In XTCE, telemetry MIDs are decoding conditions (`Comparison`), while command
+MIDs are encoding assignments (`ArgumentAssignment`). Both use named header
+fields and readable hexadecimal values.
 
 The common `cfs.xml` defines the command header as individual XML fields in the
 abstract `/cFS/CCSDS_Command`: `mid` (16 bits), `sequenceFlags` (2 bits),
@@ -253,8 +284,12 @@ java -cp "/tmp/cfs-mdb-validation:$YAMCS_CP" VerifyCfsMdb \
 All XML files have passed XTCE 1.2 schema validation.
 With Yamcs 5.13.7-SNAPSHOT, all 206 command packets matched their C structures
 byte for byte, and all 34 telemetry packets decoded into the correct CPU paths.
+All 12 telemetry header parameters were checked for every fixture, including
+additional packets with nonzero sequence counts, timestamps, and spare bytes.
 Yamcs 5.13.7-SNAPSHOT and its web interface were built and started on 2026-10-13.
 After adding CPU namespaces, Yamcs was restarted and its API confirmed seven
 applications per CPU, 206 commands, 35 containers, and a running
 `racs2-demo/realtime` processor.
+The subsequent header refactoring was verified offline; it has not been applied
+to the separate checkout currently serving port 8090.
 UDP communication with actual cFS processes has not been verified in this work.

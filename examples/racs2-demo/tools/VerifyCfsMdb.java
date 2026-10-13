@@ -67,6 +67,7 @@ public class VerifyCfsMdb {
                 commands++;
             } else {
                 var result = extractor.processPacket(expected, 0, 0, 0);
+                verifyHeader(mdb, result, expected);
                 if (result.getContainerResult().stream()
                         .noneMatch(c -> c.getContainer().getQualifiedName().equals(prefix + name))) {
                     throw new AssertionError("Wrong telemetry container for " + name);
@@ -87,14 +88,46 @@ public class VerifyCfsMdb {
                         throw new AssertionError(parameter.getName() + ": " + actual);
                     }
                 }
+                // Exercise nonzero sequence, timestamp and spare fields while
+                // preserving the packet MID and payload.
+                byte[] variant = expected.clone();
+                byte[] headerTail = HexFormat.of().parseHex("123456789ABC1234ABCD");
+                System.arraycopy(headerTail, 0, variant, 6, headerTail.length);
+                variant[2] = (byte) 0xA3;
+                variant[3] = 0x45;
+                verifyHeader(mdb, extractor.processPacket(variant, 0, 0, 0), variant);
                 telemetry++;
             }
         }
         long concreteCommands = mdb.getMetaCommands().stream().filter(c -> !c.isAbstract()).count();
-        if (commands != concreteCommands || telemetry + 1 != mdb.getSequenceContainers().size()) {
+        if (commands != concreteCommands || telemetry + 2 != mdb.getSequenceContainers().size()) {
             throw new AssertionError("Fixture coverage does not match MDB contents");
         }
         System.out.printf("PASS: %d command packets match C byte for byte; %d telemetry packets decode correctly%n",
                 commands, telemetry);
+    }
+
+    private static void verifyHeader(org.yamcs.mdb.Mdb mdb,
+            org.yamcs.mdb.ContainerProcessingResult result, byte[] packet) {
+        var fields = Map.ofEntries(
+                Map.entry("MessageId", new int[] {0, 16}), Map.entry("Version", new int[] {0, 3}),
+                Map.entry("PacketType", new int[] {3, 1}), Map.entry("SecondaryHeaderFlag", new int[] {4, 1}),
+                Map.entry("APID", new int[] {5, 11}), Map.entry("Sequence", new int[] {16, 16}),
+                Map.entry("SequenceFlags", new int[] {16, 2}), Map.entry("SequenceCount", new int[] {18, 14}),
+                Map.entry("PacketLength", new int[] {32, 16}), Map.entry("Seconds", new int[] {48, 32}),
+                Map.entry("Subseconds", new int[] {80, 16}), Map.entry("Spare", new int[] {96, 32}));
+        for (var entry : fields.entrySet()) {
+            long wanted = 0;
+            int start = entry.getValue()[0];
+            int bits = entry.getValue()[1];
+            for (int bit = start; bit < start + bits; bit++) {
+                wanted = (wanted << 1) | ((packet[bit / 8] >> (7 - bit % 8)) & 1);
+            }
+            var parameter = mdb.getParameter("/cFS/" + entry.getKey());
+            var value = result.getParameterResult().getFirstInserted(parameter);
+            if (value == null || Long.parseLong(value.getEngValue().toString()) != wanted) {
+                throw new AssertionError("Wrong header field " + entry.getKey());
+            }
+        }
     }
 }
